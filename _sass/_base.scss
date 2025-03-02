@@ -1,0 +1,60 @@
+* {
+    line-height: 1.5;
+}
+
+html,
+body {
+    font-family: 'Cabin', 'NanumGothic';
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 14px;
+
+    @media (min-width: 600px) {
+        font-size: 16px;
+    }
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: normal;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    margin-top: -0.8em;
+    background-color: #eaecef;
+}
+
+li,
+ul,
+p {
+    line-height: normal;
+}
+
+li,
+ul {
+    padding: 0.1rem 0.2rem 0.2rem 0.7rem;
+}
+
+a {
+    color: #999;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    margin: 0 0 1rem;
+    max-width: 100%;
+}
