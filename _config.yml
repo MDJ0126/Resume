@@ -1,11 +1,10 @@
+# site settings
 encoding: utf-8
-
-# Site settings
 title: 문동준
 baseurl: "/Resume"
 url: "https://mdj0126.github.io/"
   
-# Author
+# author settings
 author:
   name_en: moondongjun
   name_ko: 문동준
@@ -15,22 +14,12 @@ author:
   job: 게임 클라이언트 프로그래머
   job_start_date: 20180903
   
-# Build settings
-markdown: kramdown
+# build settings
 
-# Assets
+exclude:
+  - LICENSE
+  - README.md
+
 sass:
   sass_dir: _sass
   style: compressed
-
-# Gems
-plugins:
-  - jekyll-paginate
-  
-exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
-  - "*.gem"
-  - "LICENSE"
-  - "READE.md"
-  - "screenshot.png"

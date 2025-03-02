@@ -1,0 +1,10 @@
+#about *{
+    line-height: 2;
+}
+
+.about {
+    &-outer-div {
+        top: 50%;
+        left: 50%;
+    }
+}
