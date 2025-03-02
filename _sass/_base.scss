@@ -1,12 +1,11 @@
 * {
     line-height: 1.5;
+    box-sizing: border-box;
 }
 
 html,
 body {
-    font-family: 'Cabin', 'NanumGothic';
-    margin: 0;
-    padding: 0;
+    font-family: 'NanumGothic', sans-serif;
 }
 
 html {
@@ -18,8 +17,17 @@ html {
 }
 
 body {
-    -webkit-text-size-adjust: 100%;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        padding: 0px;
+    }
 }
+
 
 h1,
 h2,
@@ -57,4 +65,14 @@ img {
     display: block;
     margin: 0 0 1rem;
     max-width: 100%;
+}
+
+dl {
+    row-gap: 14px;
+    align-items: center;
+}
+
+dt {
+    float: left;
+    width: 165px;
 }
