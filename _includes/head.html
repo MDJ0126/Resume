@@ -1,0 +1,25 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="{{ site.author.name_en }}">
+	<meta property="og:description" content="{{ site.author.desc }}">
+	<meta property="og:image" content="{{ site.author.selfie }}">
+
+	<title>{{ site.title }}</title>
+	<!-- Java Scripts -->
+	<script>
+		if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+			// 로컬 주소인 경우
+			document.title = document.title + " (local)";
+		}
+	</script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/font/font.css">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon.ico" | relative_url }}">
+</head>

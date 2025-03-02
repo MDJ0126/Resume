@@ -1,0 +1,36 @@
+encoding: utf-8
+
+# Site settings
+title: 문동준
+baseurl: "/Resume"
+url: "https://mdj0126.github.io/"
+  
+# Author
+author:
+  name_en: moondongjun
+  name_ko: 문동준
+  email: ehdwns0126@naver.com
+  phone: 010-2359-0126
+  selfie: assets/img/profile.jpg
+  job: 게임 클라이언트 프로그래머
+  job_start_date: 20180903
+  
+# Build settings
+markdown: kramdown
+
+# Assets
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Gems
+plugins:
+  - jekyll-paginate
+  
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "*.gem"
+  - "LICENSE"
+  - "READE.md"
+  - "screenshot.png"
