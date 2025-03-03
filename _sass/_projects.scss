@@ -4,6 +4,10 @@
     }
 
     .item {
+        &-end {
+            clear: both;
+        }
+
         .container {
             position: relative;
             float: left;
