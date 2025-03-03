@@ -2,18 +2,20 @@
 <html lang="ko">
     {% include head.html %}
 <body>
-    <main>
-        {{ content }}
-    </main>
-    <footer>
-        <hr />
-        <span>
-            &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name_en }}.
-        </span>
-        <br>
-        <span>
-            Thank you.
-        </span>
-    </footer>
+    <div class="frame">
+        <main>
+            {{ content }}
+        </main>
+        <footer>
+            <hr />
+            <span>
+                &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name_en }}.
+            </span>
+            <br>
+            <span>
+                Thank you.
+            </span>
+        </footer>
+    </div>
 </body>
 </html>
