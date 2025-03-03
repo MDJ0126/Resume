@@ -5,5 +5,15 @@
     <main>
         {{ content }}
     </main>
+    <footer>
+        <hr />
+        <span>
+            &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name_en }}.
+        </span>
+        <br>
+        <span>
+            Thank you.
+        </span>
+    </footer>
 </body>
 </html>
