@@ -17,16 +17,21 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 20px;
+    /*background-color: #e5eeff;*/
+}
 
-    @media (max-width: 1080px) {
+.frame {
+    /*background-color: white;*/
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    /*border-radius: 20px;*/
+
+    @media (max-width: 1200px) {
         width: 100%;
     }
 }
-
 
 h1,
 h2 {
