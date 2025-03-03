@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\css",
+    "\\assets",
     "\\assets\\font",
     "\\assets\\img",
     "\\assets\\js",
     "\\_includes",
-    "\\_posts\\projects",
+    "\\_layouts",
+    "\\_posts",
     "\\_resume",
     "\\_sass"
   ],
-  "SelectedNode": "\\_resume\\about.md",
+  "SelectedNode": "\\Gemfile",
   "PreviewInSolutionExplorer": false
 }

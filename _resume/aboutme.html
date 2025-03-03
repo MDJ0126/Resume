@@ -1,0 +1,10 @@
+<div class="about">
+    <h2>자기소개</h2>
+
+    {% capture my_md_content %}
+    {% include_relative _resume/aboutme_md.md %}
+    {% endcapture %}
+
+    {{ my_md_content | markdownify }}
+
+</div>
