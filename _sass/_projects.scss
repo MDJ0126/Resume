@@ -1,17 +1,34 @@
 .projects {
+    margin-bottom: 20px;
+
     * {
         line-height: 1;
     }
 
-    .item {
-        &-end {
-            clear: both;
+    .list {
+        &-container {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+
+            @media (max-width: $mobile-width) {
+                display: block;
+            }
         }
+    }
+
+    .item {
+        flex: 1 1 calc(50% - 10px); /* 50% 너비, 간격을 고려한 계산 => 컬럼 2개 씩 배치 */
+        flex-grow: 1;
 
         .container {
-            position: relative;
-            float: left;
-            width: 550px;
+            display: block;
+            width: 100%;
             height: 250px;
         }
 
@@ -26,28 +43,26 @@
         }
 
         .background {
-            position: absolute;
             width: 100%;
             height: 100%;
-            color: white; /* 글씨는 하얀색 유지 */
-            display: flex;
+            color: white;
             background-size: cover;
             background-position: center;
             cursor: help;
-        }
 
-        .background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
+            .cover {
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
 
-        .background:hover::before {
-            background-color: rgba(0, 0, 0, 0.2);
+            .cover:hover {
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .cover::before {
+                content: '';
+            }
         }
     }
 }

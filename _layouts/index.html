@@ -2,20 +2,24 @@
 <html lang="ko">
     {% include head.html %}
 <body>
-    <div class="frame">
-        <main>
-            {{ content }}
-        </main>
-        <footer>
-            <hr />
-            <span>
-                &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name_en }}.
-            </span>
-            <br>
-            <span>
-                Thank you.
-            </span>
-        </footer>
+    <div class="background" style="background-image: url({{ site.baseurl }}/assets/img/common/pattern.png)">
+        <div class="cover">
+            <div class="frame">
+                <main>
+                    {{ content }}
+                </main>
+                <footer>
+                    <!--<hr />-->
+                    <span>
+                        &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name_en }}.
+                    </span>
+                    <br>
+                    <span>
+                        Thank you.
+                    </span>
+                </footer>
+            </div>
+        </div>
     </div>
 </body>
 </html>
