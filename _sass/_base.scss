@@ -6,6 +6,8 @@
 html,
 body {
     font-family: 'Noto Sans KR';
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -17,33 +19,44 @@ html {
 }
 
 body {
-    /*background-color: #e5eeff;*/
+    /*background-color: #ccc;*/
 }
 
+.background {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-size: 180px;
+
+    .cover {
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+
 .frame {
-    /*background-color: white;*/
+    margin: auto;
     min-height: 100vh;
     max-width: 1200px;
-    margin: 20px auto;
     padding: 10px 30px;
-    /*border-radius: 20px;*/
+    transition: all 0.5s linear;
 
-    @media (max-width: 1200px) {
+    @media (max-width: $mobile-width) {
         width: 100%;
+        padding: 0;
     }
 }
 
 h1,
-h2 {
-    margin: 60px auto 10px;
-    line-height: normal;
-}
-
+h2,
 h3,
 h4,
 h5,
 h6 {
-    margin: 10px auto;
+    margin: auto;
     line-height: normal;
 }
 
@@ -101,4 +114,15 @@ footer {
         margin: 40px auto;
         width: 100%;
     }
+}
+
+.box-container {
+    margin: 20px 0px;
+    padding: 20px 30px;
+    background-color: white;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 12px 12px -12px #777;
+    -moz-box-shadow: 0 12px 12px -12px #777;
+    box-shadow: 0 12px 12px -12px #777;
 }
