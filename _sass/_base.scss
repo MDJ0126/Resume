@@ -73,9 +73,17 @@ p {
     line-height: normal;
 }
 
+ol {
+    padding: 0 1rem 0 2rem;
+}
+
 li,
 ul {
     padding: 0.1rem 0.2rem 0.2rem 0.7rem;
+
+    @media (max-width: $mobile-width) {
+        padding: 0.1rem 0rem 0.2rem 0rem;
+    }
 }
 
 a {
