@@ -1,22 +1,25 @@
 <div class="projects">
-    <h2>프로젝트</h2>
-    <div class="list-container">
-        {% for post in site.posts %}
-        <!--<a href="{{ post.url }}">-->
+    {% for post in site.posts reversed %}
+    <div class="box-container">
         <div class="item">
-            <a href="#" onclick="alert('준비 중입니다.'); return false;">
-                <div class="container">
-                    <div class="background" style="background-image: url({{ site.baseurl }}/assets/img/thumbnails/{{ post.thumbnail }})">
-                        <div class="cover">
-                            <div class="content">
-                                <span class="title">{{ post.title }}</span>
-                                <p>{{ post.period }}</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container">
+                <div class="title-container">
+                    <img class="title-icon" src="{{ site.baseurl }}/assets/img/icon/{{ post.icon }}" alt="{{ post.title }}">
+                    <span class="title-text">{{ post.title }}</span>
                 </div>
-            </a>
+                <div class="content">
+                    <div class="info-container">
+                        <div class="info-item-dt">기간</div>
+                        <div class="info-item-dt">소속회사</div>
+                        <div class="info-item-dt">장르</div>
+                        <div class="info-item-dd">{{ post.period }}</div>
+                        <div class="info-item-dd">{{ post.group }}</div>
+                        <div class="info-item-dd">{{ post.genre }}</div>
+                    </div>
+                    {{ post.content }}
+                </div>
+            </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
