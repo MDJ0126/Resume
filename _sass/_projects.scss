@@ -25,6 +25,20 @@
                 font-weight: bold;
                 margin-top: -0.2em;
             }
+
+            &-release {
+                font-size: 1em;
+                font-weight: bold;
+                margin-top: -0.2em;
+            }
+
+            &-release::before {
+                content: "(";
+            }
+
+            &-release::after {
+                content: " 출시)";
+            }
         }
         // 정보
         .info {
@@ -34,17 +48,23 @@
                 flex-wrap: wrap;
             }
 
+            &-summary {
+                font-size: 14px;
+                margin: 20px auto;
+            }
+
             &-item-dt {
                 flex: 1 1 calc(33.333% - 10px);
                 background-color: #f5f6f9;
                 color: #51555d;
-                padding: 10px;
+                padding: 10px 0;
                 text-align: center;
             }
 
             &-item-dd {
                 flex: 1 1 calc(33.333% - 10px);
-                padding: 10px;
+                padding: 10px 0;
+                margin-bottom: 10px;
                 text-align: center;
             }
         }
@@ -52,5 +72,106 @@
         .content {
             line-height: 1.25;
         }
+    }
+    // 이미지 갤러리
+    .gallery {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+
+        &-container {
+            display: flex;
+            position: relative;
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        &-item {
+            margin: auto;
+            min-width: 100%;
+
+            &-content {
+                width: 100%;
+                margin: auto;
+
+                img {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .prev-button {
+        color: gray;
+        border: none;
+        padding: 50px;
+        cursor: default;
+        background-color: #ffffff;
+        z-index: 10;
+
+        @media (max-width: $mobile-width) {
+            padding: 10px;
+        }
+    }
+
+    .prev-button::before {
+        content: "◀";
+        position: relative;
+        animation: moveLeftRight 1s infinite alternate;
+    }
+
+    @keyframes moveLeftRight {
+        0% {
+            left: 0; /* 왼쪽 위치 */
+        }
+
+        50% {
+            left: 50%; /* 왼쪽으로 이동 */
+        }
+
+        100% {
+            left: 0; /* 원위치 */
+        }
+    }
+
+    .prev-button:hover {
+        color: #ffae44;
+    }
+
+    .next-button {
+        color: gray;
+        border: none;
+        padding: 50px;
+        cursor: default;
+        background-color: #ffffff;
+        z-index: 10;
+
+        @media (max-width: $mobile-width) {
+            padding: 10px;
+        }
+    }
+
+    .next-button::before {
+        content: "▶";
+        position: relative;
+        animation: moveRightLeft 1s infinite alternate;
+    }
+
+    @keyframes moveRightLeft {
+        0% {
+            right: 0; /* 왼쪽 위치 */
+        }
+
+        50% {
+            right: 50%; /* 왼쪽으로 이동 */
+        }
+
+        100% {
+            right: 0; /* 원위치 */
+        }
+    }
+
+    .next-button:hover {
+        color: #ffae44;
     }
 }

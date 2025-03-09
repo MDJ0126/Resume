@@ -1,0 +1,20 @@
+.top {
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    text-align: right;
+
+    img {
+        margin: 0 5px;
+        width: 1em;
+        height: 1em;
+        border-radius: 100%;
+        display: inline;
+        vertical-align: middle;
+    }
+
+    a:not(:last-child)::after {
+        content: " ";
+        margin-left: 10px;
+    }
+}
