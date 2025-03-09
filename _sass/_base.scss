@@ -42,7 +42,7 @@ body {
     min-height: 100vh;
     max-width: 1200px;
     padding: 10px 30px;
-    transition: all 0.1s linear;
+    transition: all 0s linear;
 
     @media (max-width: $mobile-width) {
         width: 100%;
