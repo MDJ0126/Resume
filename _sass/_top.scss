@@ -4,16 +4,25 @@
     .right {
         float: left;
         font-size: 21px;
+        margin-top: -0.1em;
+
+        @media (max-width: $mobile-width) {
+            margin-top: 0;
+        }
+    }
+
+    .right::before {
+        content: "@";
     }
 
     .left {
-        font-size: 14px;
+        font-size: 12px;
         padding-top: 6px;
         padding-bottom: 10px;
         text-align: right;
 
         img {
-            margin: 0 5px;
+            margin: -0.2em 0.5em 0;
             width: 1em;
             height: 1em;
             border-radius: 100%;
@@ -21,8 +30,12 @@
             vertical-align: middle;
         }
 
+        a {
+            cursor: help;
+        }
+
         a:not(:last-child)::after {
-            content: " ";
+            content: "-";
             margin-left: 10px;
         }
     }

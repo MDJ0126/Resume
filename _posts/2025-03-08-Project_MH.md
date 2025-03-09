@@ -6,7 +6,9 @@ release: "2025년 말 예정"
 icon: newproject.jpg
 thumbnail: newproject.jpg
 period: "2023.12 ~ 진행 중"
-developmentPhase: "초기 개발 단계, 글로벌 런칭 예정"
+developmentPhase:
+ - "초기 개발 단계"
+ - "글로벌 런칭 예정"
 genre: "헌팅 액션"
 group: "(주)해긴"
 tech: "Unity 6, C#"
