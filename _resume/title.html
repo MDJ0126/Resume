@@ -3,7 +3,24 @@
         <div class="background" style="background-image: url({{ site.baseurl }}/assets/img/picture/title.jpg)"></div>
         <div class="content">
             <p><img class="thumbnail" src="{{ site.baseurl }}/assets/img/picture/title.jpg" /></p>
-            <p class="name">Hello, I'm {{ site.author.name_en }}<br  />, a Game programmer.</p>
+            <p class="name"><span id="typing-text">Hello, I'm {{ site.author.name_en }}, a Game programmer.</span><span class="cursor"></span></p>
         </div>
     </div>
 </div>
+
+<script>
+    const typingText = document.getElementById("typing-text");
+    const text = typingText.textContent; // 요소의 기존 내용을 가져옴
+    typingText.textContent = ""; // 초기화
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typingText.textContent += text[index];
+            index++;
+            setTimeout(type, 80);
+        }
+    }
+
+    type();
+</script>
