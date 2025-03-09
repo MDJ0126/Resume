@@ -1,14 +1,14 @@
 .top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 2.5em;
     padding: 0 10px;
 
     .right {
-        float: left;
+        margin: auto auto 0 0;
         font-size: 21px;
         margin-top: -0.1em;
-
-        @media (max-width: $mobile-width) {
-            margin-top: 0;
-        }
     }
 
     .right::before {
@@ -16,9 +16,8 @@
     }
 
     .left {
+        margin: auto 0 auto;
         font-size: 12px;
-        padding-top: 6px;
-        padding-bottom: 10px;
         text-align: right;
 
         img {
