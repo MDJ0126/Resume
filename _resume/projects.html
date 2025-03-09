@@ -9,7 +9,9 @@
                 </div>
                 <div class="content">
                     <div class="info-summary">
-                        {{ post.developmentPhase }}
+                        {% for phase in post.developmentPhase %}
+                            <span class="developmentPhase">{{ phase }}</span>
+                        {% endfor %}
                     </div>
                     <div class="gallery-container">
                         <button class="prev-button"></button>
