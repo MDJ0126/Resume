@@ -1,17 +1,7 @@
-# 문동준의 개인 이력서
+# Resume
 
-<img src="https://mdj0126.github.io/Resume/assets/img/profile.jpg" width="300px" height="auto">
+[개인 이력서 페이지](https://mdj0126.github.io/Resume/)입니다.
 
-안녕하세요. 저는 `문동준`이라고 합니다.
+이력서 및 포트폴리오 자료는 저작권 보호를 받는 중요한 자산입니다. 
 
-## 기술 스택
-
-Unity Engine, C#, Jenkins
-
-## 포트폴리오 사이트
-
-[문동준 이력서 링크](https://mdj0126.github.io/Resume/)
-
-## 이메일
-
-ehdwns0126@naver.com
+무단으로 사용하거나 배포할 경우 법적 문제가 발생할 수 있으므로, 신중하게 다뤄주시기 바랍니다.
