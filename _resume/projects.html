@@ -6,11 +6,12 @@
                 <div class="title-container">
                     <img class="title-icon" src="{{ site.baseurl }}/assets/img/icon/{{ post.icon }}" alt="{{ post.title }}">
                     <span class="title-text">{{ post.title }}</span><span class="title-release">{{ post.release }}</span>
+                    <span class="title-member">{{ post.member }}</span>
                 </div>
                 <div class="content">
                     <div class="info-summary">
                         {% for phase in post.developmentPhase %}
-                            <span class="developmentPhase">{{ phase }}</span>
+                        <span class="developmentPhase">{{ phase }}</span>
                         {% endfor %}
                     </div>
                     <div class="gallery-container">
@@ -52,6 +53,9 @@
                         <li>{{ item }}</li>
                         {% endfor %}
                     </ol>
+                    <div class="post-content">
+                        {{ post.content }}
+                    </div>
                 </div>
             </div>
         </div>

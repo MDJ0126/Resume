@@ -34,6 +34,10 @@
                 font-size: 1em;
                 font-weight: bold;
                 margin-top: -0.2em;
+
+                @media (max-width: $mobile-width) {
+                    display: none;
+                }
             }
 
             &-release::before {
@@ -43,13 +47,26 @@
             &-release::after {
                 content: " 출시)";
             }
+
+            &-member {
+                font-size: 0.9em;
+                margin-top: -0.2em;
+
+                @media (max-width: $mobile-width) {
+                    font-size: 0.8em;
+                }
+            }
         }
         // 정보
         .info {
             &-container {
-                margin: 20px auto;
+                margin: 20px 40px;
                 display: flex;
                 flex-wrap: wrap;
+
+                @media (max-width: $mobile-width) {
+                    margin: 20px auto;
+                }
             }
 
             &-summary {
@@ -84,6 +101,14 @@
         // 내용
         .content {
             line-height: 1.25;
+
+            .post-content {
+                padding: 0 5px;
+
+                p {
+                    margin: 5px;
+                }
+            }
         }
     }
     // 이미지 갤러리
