@@ -7,13 +7,8 @@
 
 	<title>{{ site.title }}</title>
 	<!-- Java Scripts -->
-	<script src="{{ "/assets/js/d-dayCalculate.js" | relative_url }}"></script>
-	<script>
-        // 문서가 로드될 때 자동으로 호출
-        window.onload = function () {
-            calculateAndDisplayExperience('{{ site.author.job_start_date }}')
-        };
-	</script>
+	<script src="{{ "/assets/js/post_loader.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/gallery.js" | relative_url }}"></script>
 	<script>
 		if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
 			// 로컬 주소인 경우

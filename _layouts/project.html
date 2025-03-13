@@ -1,0 +1,64 @@
+<article>
+    <div class="project">
+        <div class="box-container">
+            <div class="item">
+                <div class="container">
+                    <div class="title-container">
+                        <img class="title-icon" src="{{ site.baseurl }}/assets/img/icon/{{ page.icon }}" alt="{{ page.title }}">
+                        <span class="title-text">{{ page.title }}</span><span class="title-release">{{ page.release }}</span>
+                        <span class="title-member">{{ page.member }}</span>
+                    </div>
+                    <div class="content">
+                        <div class="info-summary">
+                            {% for phase in page.developmentPhase %}
+                            <span class="developmentPhase">{{ phase }}</span>
+                            {% endfor %}
+                        </div>
+                        <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
+                            <button class="prev-button" onclick="prevSlide({{ page.galley_index }})"></button>
+                            <div class="gallery">
+                                {% if page.youtubeId %}
+                                <div class="gallery-item">
+                                    <div class="gallery-item-content">
+                                        {% include youtube.html id=page.youtubeId %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% for image in page.images %}
+                                <div class="gallery-item">
+                                    <div class="gallery-item-content">
+                                        <img src="{{ site.baseurl }}/assets/img/post/{{ image }}">
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button class="next-button" onclick="nextSlide({{ page.galley_index }})"></button>
+                        </div>
+                        <div class="info-container">
+                            <div class="info-item-dt">기간</div>
+                            <div class="info-item-dt">소속회사</div>
+                            <div class="info-item-dt">장르</div>
+                            <div class="info-item-dd">{{ page.period }}</div>
+                            <div class="info-item-dd">{{ page.group }}</div>
+                            <div class="info-item-dd">{{ page.genre }}</div>
+                            <div class="info-item-dt">기술</div>
+                            <div class="info-item-dt">개발도구</div>
+                            <div class="info-item-dt">관리도구</div>
+                            <div class="info-item-dd">{{ page.tech }}</div>
+                            <div class="info-item-dd">{{ page.tools }}</div>
+                            <div class="info-item-dd">{{ page.project_managed }}</div>
+                        </div>
+                        <ol>
+                            {% for item in page.works %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ol>
+                        <div class="post-content">
+                            {{ page.content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

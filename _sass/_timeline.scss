@@ -1,0 +1,23 @@
+.timeline {
+    &-title {
+        font-family: monospace;
+        font-weight: bold;
+        user-select: none;
+        display: block;
+        margin: auto;
+        color: #000000ad;
+        font-size: 1.3em;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    &-title::before, &-title::after {
+        content: "";
+        display: inline-block;
+        width: 20%;
+        height: 1px;
+        background: repeating-linear-gradient(to right, #00000062, #00000062 2px, transparent 2px, transparent 10px);
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+}
