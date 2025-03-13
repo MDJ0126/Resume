@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: project
+galley_index: 2
 category: projects
 title:  "프로젝트MH 미공개"
 release: "2025년 말 예정"
