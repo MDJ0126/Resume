@@ -1,8 +1,12 @@
 <article>
-    <div class="box-container">
-        <h1 class="post-title">{{ page.title }}</h1>
-        <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date: "%B %e, %Y" }}</time>
-        <p class="lead">{{ page.lead }}</p>
-        {{ page.content }}
+    <div class="company">
+        <div class="box-container">
+            <img class="thumbnail" src="{{ site.baseurl }}/assets/img/thumbnails/{{ page.thumbnail }}" />
+            <time class="time" datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date: "%Y년 %m월" }}</time>
+            <span class="title">{{ page.title }}</span>
+            {% if page.desc %}
+                <span class="desc">{{ page.desc }}</span>
+            {% endif %}
+        </div>
     </div>
 </article>
