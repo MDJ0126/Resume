@@ -39,7 +39,11 @@
                             <div class="info-item-dt">소속회사</div>
                             <div class="info-item-dt">장르</div>
                             <div class="info-item-dd">{{ page.period }}</div>
+                            {% if page.group_logo %}
+                            <div class="info-item-dd"><div class="{{ page.group_logo }}"></div></div>
+                            {% else %}
                             <div class="info-item-dd">{{ page.group }}</div>
+                            {% endif %}
                             <div class="info-item-dd">{{ page.genre }}</div>
                             <div class="info-item-dt">기술</div>
                             <div class="info-item-dt">개발도구</div>

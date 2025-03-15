@@ -13,21 +13,25 @@
         width: 125px;
     }
 
+    dd {
+        /*font-size: 2em;*/
+    }
+
     &-outer-div {
         top: 50%;
         left: 50%;
     }
 
-    #job-start-date {
+    #experience {
         font-size: 0.7em;
         font-weight: normal;
     }
 
-    #job-start-date::before {
+    #experience::before {
         content: "(경력 ";
     }
 
-    #job-start-date::after {
+    #experience::after {
         content: ")";
     }
 }
