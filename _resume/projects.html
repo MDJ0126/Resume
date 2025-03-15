@@ -1,0 +1,13 @@
+<div class="projects">
+    <span class="timeline-title">Projects</span>
+    {% assign category = "projects" %}
+    {% for post in site.categories[category] reversed %}
+
+    <div id="projects-post-container-{{ forloop.index }}"></div>
+
+    <script>
+        loadPost("{{ site.baseurl }}{{ post.url }}", "projects-post-container-{{ forloop.index }}");
+    </script>
+
+    {% endfor %}
+</div>
