@@ -34,5 +34,9 @@
 
     .content {
         margin: 10px 0 10px 65px;
+
+        @media (max-width: $mobile-width) {
+            margin: 10px 0 10px 10px;
+        }
     }
 }
