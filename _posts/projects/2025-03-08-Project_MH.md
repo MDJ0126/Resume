@@ -2,14 +2,13 @@
 layout: project
 galley_index: 2
 category: projects
-title:  "프로젝트MH 미공개"
+title:  "신규 내부 프로젝트 개발"
 release: "2025년 말 예정"
 icon: newproject.jpg
 thumbnail: newproject.jpg
 period: "2023.12 ~ 진행 중"
 developmentPhase:
- - "초기 개발 단계"
- - "글로벌 런칭 예정"
+ - "초기 개발 진행 중"
 member: "총인원 20명 중, 클라이언트 4명 구성"
 genre: "헌팅 액션"
 group: "해긴"
@@ -22,7 +21,7 @@ images:
  - new_project_1.jpg
  - new_project_2.jpg
 works:
- - 각종 컨텐츠 개발 중 (비공개)
+ - 각종 컨텐츠 개발 중
  - 캐릭터 커스터마이징 시스템(얼굴, 체형) 설계 및 적용
  - 캐릭터 장비 파츠 시스템(매지카클로즈, 스킨드매시랜더러) 구현
  - 로그인 및 TCP 통신 기반 매칭 시스템, 인게임 전투 로직 처리
