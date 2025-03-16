@@ -113,7 +113,6 @@ img {
 
 
 footer {
-    padding-top: 10px;
     padding-bottom: 30px;
     color: gray;
     font-size: 12px;
@@ -122,6 +121,10 @@ footer {
     hr {
         margin: 40px auto;
         width: 100%;
+    }
+
+    div {
+        padding: 15px 40px 0;
     }
 }
 
