@@ -91,5 +91,26 @@
                 opacity: 0;
             }
         }
+
+        .open-to-work {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to left, #00c965, transparent);
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 4px white;
+            font-style: italic;
+            padding: 2px 25px 2px 50px;
+
+            @media (max-width: $mobile-width) {
+                font-size: 1.2em;
+            }
+        }
+
+        .open-to-work::before {
+            content: "#OPEN TO WORK";
+        }
     }
 }
