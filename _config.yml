@@ -2,8 +2,8 @@
 encoding: utf-8
 title: 문동준
 baseurl: "/Resume"
-url: "https://mdj0126.github.io/"
-  
+open_to_work: true
+
 # author settings
 author:
   name_en: moondongjun

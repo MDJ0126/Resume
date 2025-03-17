@@ -4,6 +4,9 @@
         <div class="content">
             <p><img class="thumbnail" src="{{ site.baseurl }}/assets/img/picture/title.jpg" /></p>
             <p class="name"><span id="typing-text">Hello, I'm {{ site.author.name_en }}, a Game programmer.</span><span class="cursor"></span></p>
+            {% if site.open_to_work %}
+            <div class="open-to-work"></div>
+            {% endif %}
         </div>
     </div>
 </div>
