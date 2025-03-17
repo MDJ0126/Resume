@@ -1,19 +1,21 @@
 <article>
     <div class="project">
-        <div class="box-container">
+        <div class="project-box-container">
             <div class="item">
                 <div class="container">
                     <div class="title-container">
-                        <img class="title-icon" src="{{ site.baseurl }}/assets/img/icon/{{ page.icon }}" alt="{{ page.title }}">
-                        <span class="title-text">{{ page.title }}</span><span class="title-release">{{ page.release }}</span>
-                        <span class="title-member">{{ page.member }}</span>
-                    </div>
-                    <div class="content">
-                        <div class="info-summary">
+                        <div class="title-main">
+                            <img class="title-icon" src="{{ site.baseurl }}/assets/img/icon/{{ page.icon }}" alt="{{ page.title }}">
+                            <span class="title-text">{{ page.title }}</span><span class="title-release">{{ page.release }}</span>
+                            <span class="title-member">{{ page.member }}</span>
+                        </div>
+                        <div class="title-sub">
                             {% for phase in page.developmentPhase %}
                             <span class="developmentPhase">{{ phase }}</span>
                             {% endfor %}
                         </div>
+                    </div>
+                    <div class="content">
                         <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
                             <button class="prev-button" onclick="prevSlide({{ page.galley_index }})"></button>
                             <div class="gallery">
