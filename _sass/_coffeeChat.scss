@@ -1,0 +1,63 @@
+.coffeeChat {
+    text-align: center;
+    font-size: 1em;
+
+    @media (max-width: $mobile-width) {
+        font-size: 0.8em;
+    }
+
+    &-box-container {
+        background: linear-gradient(to left, #f7e600, white);
+        position: relative;
+        padding: 30px;
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 12px 12px -12px #777;
+        -moz-box-shadow: 0 12px 12px -12px #777;
+        box-shadow: 0 12px 12px -12px #777;
+
+        @media (max-width: $mobile-width) {
+            padding: 30px 100px;
+        }
+    }
+
+    .coffeeChat-thumbnail {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translate(0, -50%);
+        background-image: url("/Resume/assets/img/thumbnails/coffeeChat.png");
+        background-size: 80px;
+        background-repeat: no-repeat;
+        width: 80px;
+        height: 80px;
+
+        @media (max-width: $mobile-width) {
+            background-size: 60px;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    .coffeeChat-qr {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translate(0, -50%);
+        background-image: url("/Resume/assets/img/thumbnails/coffeeChat_qr.jpg");
+        background-size: 80px;
+        background-repeat: no-repeat;
+        width: 80px;
+        height: 80px;
+
+        @media (max-width: $mobile-width) {
+            background-size: 60px;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    p {
+        margin: 5px auto;
+    }
+}
