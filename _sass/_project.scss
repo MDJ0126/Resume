@@ -1,4 +1,15 @@
 .project {
+    &-box-container {
+        position: relative;
+        margin: 20px 0px;
+        background-color: white;
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 12px 12px -12px #777;
+        -moz-box-shadow: 0 12px 12px -12px #777;
+        box-shadow: 0 12px 12px -12px #777;
+    }
+
     .item {
         .container {
             display: block;
@@ -7,9 +18,28 @@
         // 타이틀
         .title {
             &-container {
+                background: linear-gradient(190deg, #bd81ff40, transparent);
+                padding: 20px 30px 10px;
+            }
+
+            &-main {
                 display: flex;
                 align-items: center;
                 gap: 15px;
+            }
+
+            &-sub {
+                font-size: 14px;
+                margin: auto auto auto 52.5px;
+
+                @media (max-width: $mobile-width) {
+                    margin: 10px;
+                }
+
+                .developmentPhase:not(:last-child)::after {
+                    content: ",";
+                    margin-right: 0.2rem;
+                }
             }
 
             &-icon {
@@ -63,23 +93,10 @@
                 margin: 20px 40px;
                 display: flex;
                 flex-wrap: wrap;
+                z-index: 2;
 
                 @media (max-width: $mobile-width) {
                     margin: 20px auto;
-                }
-            }
-
-            &-summary {
-                font-size: 14px;
-                margin: 0 auto 20px 55px;
-
-                @media (max-width: $mobile-width) {
-                    margin: 10px;
-                }
-
-                .developmentPhase:not(:last-child)::after {
-                    content: ",";
-                    margin-right: 0.2rem;
                 }
             }
 
@@ -103,6 +120,7 @@
         // 내용
         .content {
             line-height: 1.25;
+            padding: 20px 25px 30px;
 
             .post-content {
                 padding: 0 5px;
@@ -133,7 +151,7 @@
             display: flex;
             position: relative;
             width: 100%;
-            margin: auto;
+            margin: 10px auto;
             overflow: hidden;
         }
 
