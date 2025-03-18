@@ -34,6 +34,7 @@ function calculateExperience(startDate, endDate = null) {
     return { years, months };
 }
 
+// 경력 계산
 function calculateAndDisplayExperience(startDate, endDateOrElement, targetElement = null) {
     // 끝 날짜가 주어진 경우 (두 번째 경력의 예시)
     if (endDateOrElement && typeof endDateOrElement === 'string') {
@@ -48,6 +49,14 @@ function calculateAndDisplayExperience(startDate, endDateOrElement, targetElemen
         if (experience !== null && endDateOrElement) {
             endDateOrElement.innerHTML = `${experience.years}년 ${experience.months}개월`;
         }
+    }
+}
+
+// 나이 계산
+function calculateAndDisplayAge(startDate, targetElement) {
+    var experience = calculateExperience(startDate);
+    if (experience !== null && targetElement) {
+        targetElement.innerHTML = `만 ${experience.years}세`;
     }
 }
 
