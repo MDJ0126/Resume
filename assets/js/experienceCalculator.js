@@ -56,7 +56,7 @@ function calculateAndDisplayExperience(startDate, endDateOrElement, targetElemen
 function calculateAndDisplayAge(startDate, targetElement) {
     var experience = calculateExperience(startDate);
     if (experience !== null && targetElement) {
-        targetElement.innerHTML = `만 ${experience.years}세`;
+        targetElement.innerHTML = `${experience.years}세`;
     }
 }
 
