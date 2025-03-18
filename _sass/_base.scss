@@ -143,3 +143,15 @@ footer {
     -moz-box-shadow: 0 12px 12px -12px #777;
     box-shadow: 0 12px 12px -12px #777;
 }
+
+/*.box-container::before {
+    content: "";
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #002bff61;
+}*/
