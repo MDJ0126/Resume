@@ -1,4 +1,27 @@
 .company {
+    &-box-container {
+        position: relative;
+        padding: 20px 30px;
+        margin: 20px 0px;
+        background-color: white;
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 12px 12px -12px #777;
+        -moz-box-shadow: 0 12px 12px -12px #777;
+        box-shadow: 0 12px 12px -12px #777;
+    }
+
+    &-box-container::before {
+        content: "";
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #9fa7ff;
+    }
 
     .time {
         font-size: 1em;
