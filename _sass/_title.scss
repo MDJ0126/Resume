@@ -42,10 +42,11 @@
 
     .thumbnail {
         display: block;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         margin: auto;
         border-radius: 100%;
+        border: 2px solid white;
     }
 
     .content {
@@ -73,7 +74,7 @@
         .name {
             font-family: monospace;
             padding: 5px 10px;
-            background-color: #00000069;
+            background-color: #000000aa;
             font-size: 24px;
         }
 
