@@ -89,6 +89,10 @@ ul {
 a {
     color: chocolate;
     text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 dl {
