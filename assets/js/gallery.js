@@ -3,7 +3,7 @@ let gallerys = {};
 // 갤러리 업데이트 함수
 function updateGallery(index) {
     const container = document.querySelector("#gallery-container-" + index);
-    const gallery = container.querySelector(".gallery");
+    const gallery = container.querySelector(".gallerys");
     gallery.style.transform = `translateX(-${gallerys[index] * 100}%)`;
 }
 

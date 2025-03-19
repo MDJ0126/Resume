@@ -18,21 +18,23 @@
                     <div class="content">
                         <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
                             <button class="prev-button" onclick="prevSlide({{ page.galley_index }})"></button>
-                            <div class="gallery">
-                                {% if page.youtubeId %}
-                                <div class="gallery-item">
-                                    <div class="gallery-item-content">
-                                        {% include youtube.html id=page.youtubeId %}
+                            <div class="gallerys-frame">
+                                <div class="gallerys">
+                                    {% if page.youtubeId %}
+                                    <div class="gallery-item">
+                                        <div class="gallery-item-content">
+                                            {% include youtube.html id=page.youtubeId %}
+                                        </div>
                                     </div>
-                                </div>
-                                {% endif %}
-                                {% for image in page.images %}
-                                <div class="gallery-item">
-                                    <div class="gallery-item-content">
-                                        <img src="{{ site.baseurl }}/assets/img/post/{{ image }}">
+                                    {% endif %}
+                                    {% for image in page.images %}
+                                    <div class="gallery-item">
+                                        <div class="gallery-item-content">
+                                            <img src="{{ site.baseurl }}/assets/img/post/{{ image }}">
+                                        </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
-                                {% endfor %}
                             </div>
                             <button class="next-button" onclick="nextSlide({{ page.galley_index }})"></button>
                         </div>
