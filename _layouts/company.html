@@ -1,7 +1,7 @@
 <article>
     <div class="company">
         <div class="company-box-container">
-            <div>
+            <div class="title-container">
                 <div class="{{ page.group_logo }}"></div>
                 <span class="title">{{ page.title }}</span>
                 <span class="time" datetime="{{ page.date | date_to_xmlschema }}" class="post-date"><span id="start-{{ page.title }}"></span> ~ </span>
@@ -25,7 +25,7 @@
                 </script>
                 {% endif %}
             </div>
-            <div class="content">{{ page.content }}</div>
+            <div class="content-container">{{ page.content }}</div>
         </div>
     </div>
 </article>
