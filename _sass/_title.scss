@@ -101,13 +101,13 @@
             font-size: 1.5em;
             font-weight: bold;
             color: white;
-            text-shadow: 0 0 4px white;
+            text-shadow: 0 0 4px #000000bb;
             font-style: italic;
             padding: 2px 25px 2px 50px;
 
             @media (max-width: $mobile-width) {
                 font-size: 1.2em;
-                text-shadow: 0 0 2px white;
+                text-shadow: 0 0 2px #000000bb;
             }
         }
 
