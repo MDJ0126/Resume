@@ -109,7 +109,7 @@ img {
     max-width: 100%;
 }
 
-::selection {
+html::selection {
     background: #ffae44;
     color: #fff;
     text-shadow: none;

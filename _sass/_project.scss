@@ -105,7 +105,6 @@
                 margin: 20px 40px;
                 display: flex;
                 flex-wrap: wrap;
-                z-index: 2;
 
                 @media (max-width: $mobile-width) {
                     margin: 20px auto;
@@ -155,29 +154,33 @@
         }
     }
     // 이미지 갤러리
-    .gallery {
+    .gallery-container {
+        display: flex;
+        position: relative;
+        width: 100%;
+        margin: 10px auto;
+        overflow: hidden;
+    }
+
+    .gallerys {
         display: flex;
         transition: transform 0.3s ease-in-out;
+    }
 
-        &-container {
-            display: flex;
-            position: relative;
+    .gallerys-frame {
+        overflow: hidden;
+    }
+
+    .gallery-item {
+        margin: auto;
+        min-width: 100%;
+
+        &-content {
             width: 100%;
-            margin: 10px auto;
-            overflow: hidden;
-        }
-
-        &-item {
             margin: auto;
-            min-width: 100%;
 
-            &-content {
-                width: 100%;
-                margin: auto;
-
-                img {
-                    vertical-align: middle;
-                }
+            img {
+                vertical-align: middle;
             }
         }
     }
@@ -186,9 +189,7 @@
         color: gray;
         border: none;
         padding: 50px;
-        cursor: default;
-        background-color: #ffffff;
-        z-index: 10;
+        background-color: #00000000;
 
         @media (max-width: $mobile-width) {
             padding: 10px;
@@ -197,21 +198,18 @@
 
     .prev-button::before {
         content: "◀";
+        display: inline-block;
         position: relative;
-        animation: moveLeftRight 1s infinite alternate;
+        animation: moveLeftRight 0.5s infinite alternate;
     }
 
     @keyframes moveLeftRight {
         0% {
-            left: 0; /* 왼쪽 위치 */
-        }
-
-        50% {
-            left: 50%; /* 왼쪽으로 이동 */
+            transform: translateX(-30%);
         }
 
         100% {
-            left: 0; /* 원위치 */
+            transform: translateX(20%);
         }
     }
 
@@ -223,9 +221,7 @@
         color: gray;
         border: none;
         padding: 50px;
-        cursor: default;
-        background-color: #ffffff;
-        z-index: 10;
+        background-color: #00000000;
 
         @media (max-width: $mobile-width) {
             padding: 10px;
@@ -234,21 +230,18 @@
 
     .next-button::before {
         content: "▶";
+        display: inline-block;
         position: relative;
-        animation: moveRightLeft 1s infinite alternate;
+        animation: moveRightLeft 0.5s infinite alternate;
     }
 
     @keyframes moveRightLeft {
         0% {
-            right: 0; /* 왼쪽 위치 */
-        }
-
-        50% {
-            right: 50%; /* 왼쪽으로 이동 */
+            transform: translateX(30%);
         }
 
         100% {
-            right: 0; /* 원위치 */
+            transform: translateX(-20%);
         }
     }
 
