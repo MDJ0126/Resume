@@ -1,15 +1,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:title" content="{{ site.author.name_en }}">
-	<meta property="og:description" content="{{ site.author.desc }}">
-	<meta property="og:image" content="{{ site.author.selfie }}">
 
 	<title>{{ site.title }}</title>
+
+	<!-- Open Graph(OG) -->
+	<meta property="og:title" content="{{ site.author.name_ko }}, {{ site.author.job }}">
+	<meta property="og:description" content="{{ site.author.desc }}">
+	<meta property="og:image" content="{{ site.author.picture | relative_url }}">
+	<meta property="og:url" content="{{ site.baseurl }}">
+	<meta property="og:type" content="profile">
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="{{ site.author.picture | relative_url }}">
+
 	<!-- Java Scripts -->
 	<script src="{{ "/assets/js/experienceCalculator.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/postLoader.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/gallery.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/formatDate.js" | relative_url }}"></script>
 	<script>
 		if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
 			// 로컬 주소인 경우
