@@ -5,14 +5,17 @@
 	<title>{{ site.title }}</title>
 
 	<!-- Open Graph(OG) -->
+	<meta property="og:type" content="profile">
+	<meta property="og:url" content="{{ site.baseurl }}">
 	<meta property="og:title" content="{{ site.author.name_ko }}, {{ site.author.job }}">
 	<meta property="og:description" content="{{ site.author.desc }}">
 	<meta property="og:image" content="{{ site.author.picture | relative_url }}">
-	<meta property="og:url" content="{{ site.baseurl }}">
-	<meta property="og:type" content="profile">
 
 	<!-- Twitter -->
-	<meta name="twitter:card" content="{{ site.author.picture | relative_url }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ site.author.name_ko }}, {{ site.author.job }}">
+	<meta name="twitter:description" content="{{ site.author.desc }}">
+	<meta property="og:image" content="{{ site.author.picture | relative_url }}">
 
 	<!-- Java Scripts -->
 	<script src="{{ "/assets/js/experienceCalculator.js" | relative_url }}"></script>
