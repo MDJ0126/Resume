@@ -2,7 +2,7 @@
     <h2>소개말</h2>
 
     {% capture my_md_content %}
-    {% include_relative _resume/aboutme_md.md %}
+    {% include_relative _resume/aboutme_content.md %}
     {% endcapture %}
 
     {{ my_md_content | markdownify }}
