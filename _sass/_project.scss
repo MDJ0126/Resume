@@ -133,6 +133,10 @@
             line-height: 1.25;
             padding: 20px 25px 30px;
 
+            @media (max-width: $mobile-width) {
+                padding: 10px 10px 25px;
+            }
+
             .post-content {
                 padding: 0 5px;
 
