@@ -160,6 +160,10 @@ footer {
     grid-gap: 10px;
 }
 
+body.loading {
+    overflow: hidden; /* 스크롤 비활성화 */
+}
+
 /* 로딩 스피너 */
 .loader {
     width: 24px;
