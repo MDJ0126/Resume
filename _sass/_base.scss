@@ -144,14 +144,39 @@ footer {
     box-shadow: 0 12px 12px -12px #777;
 }
 
-/*.box-container::before {
-    content: "";
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-right: 7px solid transparent;
-    border-top: 7px solid #002bff61;
-}*/
+#block {
+    font-family: system-ui, sans-serif;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+}
+
+/* 로딩 스피너 */
+.loader {
+    width: 24px;
+    height: 24px;
+    border: 3px solid black;
+    border-top: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* 로딩 애니메이션 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

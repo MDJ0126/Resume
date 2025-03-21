@@ -6,16 +6,16 @@
 	<!-- 일반적인 링크 공유 카드 디자인-->
 	<meta property="og:type" content="profile">
 	<meta property="og:url" content="{{ site.baseurl }}">
-	<meta property="og:title" content="{{ site.author.name_ko }}, {{ site.author.job }}">
-	<meta property="og:description" content="{{ site.author.desc }}">
-	<meta property="og:image" content="{{ site.author.picture | relative_url }}">
-	<meta property="og:site_name" content="{{ site.author.name_ko }} 프로필 사이트">
+	<meta property="og:title" content="{{ site.title }}">
+	<meta property="og:description" content="{{ site.desc }}">
+	<meta property="og:image" content="{{ site.thumbnail | relative_url }}">
+	<meta property="og:site_name" content="{{ site.title }}">
 
 	<!-- Twitter 링크 공유 카드 디자인 -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="{{ site.author.name_ko }}, {{ site.author.job }}">
-	<meta name="twitter:description" content="{{ site.author.desc }}">
-	<meta name="twitter:image" content="{{ site.author.picture | relative_url }}">
+	<meta name="twitter:title" content="{{ site.title }}">
+	<meta name="twitter:description" content="{{ site.desc }}">
+	<meta name="twitter:image" content="{{ site.thumbnail | relative_url }}">
 
 	<!-- Java Scripts 등록 -->
 	<script src="{{ "/assets/js/localhostChecker.js" | relative_url }}"></script>

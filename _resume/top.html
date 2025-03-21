@@ -3,8 +3,16 @@
         {{ site.title }}
     </div>
     <div class="right">
-        <a href="https://moondongjun.tistory.com/" target='_'><img src="{{ site.baseurl }}/assets/img/favicon/tistory.png" />Tistory</a>
-        <a href="https://github.com/MDJ0126/" target='_'><img src="{{ site.baseurl }}/assets/img/favicon/github.png" />Github</a>
-        <a href="https://www.linkedin.com/in/moondongjun/" target='_'><img src="{{ site.baseurl }}/assets/img/favicon/linkedin.png" />Linkedin</a>
+        {% if site.tistory %}
+        <a href="{{ site.tistory }}" target='_'><img src="{{ site.baseurl }}/assets/img/favicon/tistory.png" />Tistory</a>
+        {% endif %}
+
+        {% if site.github %}
+        <a href="{{ site.github }}" target='_'><img src="{{ site.baseurl }}/assets/img/favicon/github.png" />Github</a>
+        {% endif %}
+
+        {% if site.linkedin %}
+        <a href="{{ site.linkedin }}" target='_'><img src="{{ site.baseurl }}/assets/img/favicon/linkedin.png" />Linkedin</a>
+        {% endif %}
     </div>
 </div>
