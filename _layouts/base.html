@@ -2,6 +2,25 @@
 <html lang="ko">
     {% include head.html %}
 <body>
+    <div id="block">
+        <div class="loader"></div>
+        <div>로딩 중...</div>
+    </div>
+    <script>
+        window.onload = function () {
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    var block = document.getElementById("block");
+                    if (block) {
+                        block.style.opacity = "0"; // 서서히 투명해짐
+                        setTimeout(() => {
+                            block.remove(); // 완전히 사라진 후 삭제
+                        }, 1000); // transition 시간과 동일하게 맞춤 (1초)
+                    }
+                }, 0);
+            });
+        };
+    </script>
     <div class="background" style="background-image: url({{ site.baseurl }}/assets/img/common/pattern.png)">
         <div class="cover">
             <div class="frame">
