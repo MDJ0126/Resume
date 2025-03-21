@@ -7,6 +7,7 @@
         <div>로딩 중...</div>
     </div>
     <script>
+        document.body.classList.add("loading");
         window.onload = function () {
             requestAnimationFrame(() => {
                 setTimeout(() => {
@@ -15,7 +16,8 @@
                         block.style.opacity = "0"; // 서서히 투명해짐
                         setTimeout(() => {
                             block.remove(); // 완전히 사라진 후 삭제
-                        }, 1000); // transition 시간과 동일하게 맞춤 (1초)
+                            document.body.classList.remove("loading"); // 로딩 끝나면 스크롤 복원
+                        }, 100); // transition 시간과 동일하게 맞춤 (0.1초)
                     }
                 }, 0);
             });
