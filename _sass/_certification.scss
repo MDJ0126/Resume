@@ -13,6 +13,10 @@
 
     dt {
         float: left;
-        width: 125px;
+        width: 110px;
+
+        @media (max-width: $mobile-width) {
+            width: 100px;
+        }
     }
 }
