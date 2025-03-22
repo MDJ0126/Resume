@@ -3,7 +3,7 @@ layout: project
 galley_index: 2
 category: projects
 title:  "신규 내부 프로젝트 개발"
-release: "2025년 말 예정"
+release: "2025년 하반기 출시 예정"
 icon: newproject.jpg
 thumbnail: newproject.jpg
 period: "2023.12 ~ 진행 중"
