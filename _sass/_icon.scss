@@ -12,7 +12,7 @@
 }
 
 .tistory-icon {
-    background-image: url("/Resume//assets/img/favicon/tistory.png");
+    background-image: url("/Resume//assets/img/icon/tistory.png");
     background-size: 1em auto;
     background-repeat: no-repeat;
     background-position: center center;
@@ -27,7 +27,7 @@
 }
 
 .github-icon {
-    background-image: url("/Resume//assets/img/favicon/github.png");
+    background-image: url("/Resume//assets/img/icon/github.png");
     background-size: 1em auto;
     background-repeat: no-repeat;
     background-position: center center;
@@ -42,7 +42,36 @@
 }
 
 .linkedin-icon {
-    background-image: url("/Resume//assets/img/favicon/linkedin.png");
+    background-image: url("/Resume//assets/img/icon/linkedin.png");
+    background-size: 1em auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 100%;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    font-size: inherit;
+    margin: -0.2em 0.5em 0;
+    vertical-align: middle;
+}
+
+.link-icon {
+    background-image: url("/Resume//assets/img/icon/link.png");
+    background-size: 1em auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    font-size: inherit;
+    margin: -0.2em 0.5em 0;
+    vertical-align: middle;
+}
+
+.unity-icon {
+    background-image: url("/Resume//assets/img/icon/unity.png");
     background-size: 1em auto;
     background-repeat: no-repeat;
     background-position: center center;
