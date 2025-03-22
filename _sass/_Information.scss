@@ -1,0 +1,42 @@
+.information {
+    margin: 15px 0;
+
+    * {
+        line-height: 2;
+    }
+
+    ul {
+        margin: 0 0 0 20px;
+    }
+
+    li {
+        line-height: 1.5;
+    }
+
+    dl {
+        padding-left: 10px;
+        row-gap: 14px;
+        align-items: center;
+    }
+
+    dt {
+        float: left;
+        width: 165px;
+
+        @media (max-width: $mobile-width) {
+            width: 150px;
+        }
+    }
+
+    p {
+        margin: 0 0 0 10px;
+    }
+
+    .inline-box-container {
+        padding: 5px 30px;
+
+        @media (max-width: $mobile-width) {
+            padding: 10px 20px;
+        }
+    }
+}
