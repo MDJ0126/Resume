@@ -1,10 +1,12 @@
-<div class="aboutme">
-    <h2>소개말</h2>
+<div class="box-container">
+    <div class="aboutme">
+        <h2>소개말</h2>
 
-    {% capture my_md_content %}
-    {% include_relative _resume/aboutme_content.md %}
-    {% endcapture %}
+        {% capture my_md_content %}
+        {% include_relative _resume/aboutme_content.md %}
+        {% endcapture %}
 
-    {{ my_md_content | markdownify }}
+        {{ my_md_content | markdownify }}
 
+    </div>
 </div>
