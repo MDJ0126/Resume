@@ -6,6 +6,13 @@
     }
 
     &-content {
-        line-height: 1;
+        p {
+            font-size: 1em;
+            margin: 0.5em;
+
+            @media (max-width: $mobile-width) {
+                font-size: 0.9em;
+            }
+        }
     }
 }
