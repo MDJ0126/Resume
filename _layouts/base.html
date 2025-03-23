@@ -2,7 +2,7 @@
 <html lang="ko">
     {% include head.html %}
 <body>
-    <div id="block">
+    <div id="loading-block">
         <div class="loader"></div>
         <div>이력서 사이트 구성 중...</div>
     </div>
@@ -11,7 +11,7 @@
         window.onload = function () {
             requestAnimationFrame(() => {
                 setTimeout(() => {
-                    var block = document.getElementById("block");
+                    var block = document.getElementById("loading-block");
                     if (block) {
                         block.style.opacity = "0"; // 서서히 투명해짐
                         setTimeout(() => {
@@ -47,5 +47,6 @@
             </div>
         </div>
     </div>
+    {% include imageModal.html %}
 </body>
 </html>
