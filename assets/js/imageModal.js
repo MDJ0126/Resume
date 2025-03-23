@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target.classList.contains("modal")) {
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalInnerImage");
+            document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`; // 스크롤바 자리에 공간 채우기
+            document.body.style.overflow = "hidden"; // 모달 열 때 페이지 스크롤 비활성화
 
             modal.style.display = "flex";
             modalImg.src = "";  // 먼저 src를 비워서 이전 이미지 제거
