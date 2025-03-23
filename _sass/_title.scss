@@ -78,13 +78,13 @@
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        cursor: help;
 
         p {
             margin: 10px;
 
             img {
                 margin: auto;
+                cursor: help;
             }
         }
 
