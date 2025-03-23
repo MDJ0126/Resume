@@ -1,9 +1,9 @@
 <div class="box-container">
-    <div class="aboutme">
-        <h2>소개말</h2>
-        <div class="aboutme-content">
+    <div class="keyword">
+        <h2>키워드</h2>
+        <div class="keyword-content">
             {% capture my_md_content %}
-            {% include_relative _resume/aboutme_content.md %}
+            {% include_relative _resume/keyword_content.md %}
             {% endcapture %}
 
             {{ my_md_content | markdownify }}
