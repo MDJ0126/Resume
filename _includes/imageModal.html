@@ -4,38 +4,5 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // 모든 .modal 클래스를 가진 이미지에 대해 클릭 이벤트 처리
-        var modal = document.getElementById("imageModal");
-        var modalImg = document.getElementById("modalInnerImage");
-        var closeBtn = document.getElementById("closeBtn");
 
-        // .modal 클래스 가진 모든 이미지를 처리
-        var imgs = document.querySelectorAll(".modal");
-
-        imgs.forEach((img) => {
-            img.onclick = function () {
-                modal.style.display = "flex"; // 모달 열기
-                modalImg.src = this.src; // 클릭한 이미지의 src를 모달에 표시
-                document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`; // 스크롤바 자리에 공간 채우기
-                document.body.style.overflow = "hidden"; // 모달 열 때 페이지 스크롤 비활성화
-            }
-        });
-
-        // 모달 닫기
-        closeBtn.onclick = function () {
-            modal.style.display = "none"; // 모달 닫기
-            document.body.style.paddingRight = "0"; // 스크롤바 자리에 공간 비우기
-            document.body.style.overflow = "auto"; // 모달 닫을 때 페이지 스크롤 활성화
-        };
-
-        // 모달 밖을 클릭하면 모달 닫기
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none"; // 모달 닫기
-                document.body.style.paddingRight = "0"; // 스크롤바 자리에 공간 비우기
-                document.body.style.overflow = "auto"; // 모달 닫을 때 페이지 스크롤 활성화
-            }
-        };
-    });
 </script>
