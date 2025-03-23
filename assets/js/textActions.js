@@ -13,3 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
         element.innerHTML += '<div class="copy-icon"></div>';
     });
 });
+
+function search(element) {
+    const query = encodeURIComponent(element.innerText || element.textContent);
+    window.open(`https://www.google.com/search?q=${query}`, '_blank');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".search").forEach(element => {
+        element.setAttribute("onclick", "search(this)");
+        element.innerHTML += '<div class="search-icon"></div>';
+    });
+});
