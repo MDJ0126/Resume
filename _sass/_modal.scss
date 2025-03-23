@@ -1,3 +1,7 @@
+.modal {
+	cursor: help;
+}
+
 /* 모달 스타일 */
 .modal-root {
 	display: none; /* 기본적으로 숨김 */
@@ -18,8 +22,10 @@
 .modal-content {
 	margin: auto;
 	display: block;
-	width: 80%;
-	max-width: 700px;
+	max-width: 80vw; /* 가로 최대 80% */
+	max-height: 80vh; /* 세로 최대 80% */
+	width: auto; /* 가로 자동 조정 */
+	height: auto; /* 세로 자동 조정 */
 }
 
 /* 닫기 버튼 스타일 */
