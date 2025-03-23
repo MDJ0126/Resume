@@ -95,10 +95,6 @@ a {
     }
 }
 
-dl {
-    margin: 0;
-}
-
 a:hover {
     /*font-weight: bold;*/
     color: crimson;
@@ -113,6 +109,10 @@ html::selection {
     background: #ffae44;
     color: #fff;
     text-shadow: none;
+}
+
+.copy {
+    cursor: pointer;
 }
 
 
