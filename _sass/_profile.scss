@@ -51,7 +51,8 @@
         }
     }
 
-    &-description {
+    &-type-description {
+        display: none;
         user-select: none;
         position: absolute;
         top: 0;
