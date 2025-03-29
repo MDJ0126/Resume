@@ -16,7 +16,7 @@ group_logo: "haegin-logo"
 tech: "Unity 6, C#"
 tools: "Addressables, uGUI, URP"
 project_managed: "SVN, Jenkins"
-
+released: false
 images:
  - new_project_1.png
  - new_project_2.png
