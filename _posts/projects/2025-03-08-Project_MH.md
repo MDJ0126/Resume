@@ -18,8 +18,8 @@ tools: "Addressables, uGUI, URP"
 project_managed: "SVN, Jenkins"
 
 images:
- - new_project_1.jpg
- - new_project_2.jpg
+ - new_project_1.png
+ - new_project_2.png
 works:
  - 각종 컨텐츠 개발 중
  - 캐릭터 커스터마이징 시스템(얼굴, 체형) 설계 및 적용
