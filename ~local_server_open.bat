@@ -1,6 +1,6 @@
 @echo off
 
-set BASEURL=Portfolio
+set BASEURL=Resume
 
 echo Installing bundles...
 call bundle install
