@@ -1,14 +1,14 @@
 # site settings
 encoding: utf-8
 baseurl: "/Resume"
-thumbnail: "/assets/img/picture/profile.png"
+thumbnail: "/assets/img/picture/profile.jpg"
 title: "문동준 프로필"
 desc: "Unity와 C#을 활용한 게임 클라이언트 개발자. 포트폴리오에서 프로젝트를 확인하세요!"
 open_to_work: true
 
 # author settings
 author:
-  picture: "/assets/img/picture/profile.png"
+  picture: "/assets/img/picture/profile.jpg"
   name_en: "Dongjun Moon"
   name_ko: "문동준"
   birth_date: "19930126"
