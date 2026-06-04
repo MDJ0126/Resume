@@ -1,0 +1,16 @@
+<button id="download-pdf-btn" class="pdf-btn">
+    <span>📄</span> PDF / 인쇄하기
+</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const pdfBtn = document.getElementById("download-pdf-btn");
+
+        if (pdfBtn) {
+            pdfBtn.addEventListener("click", () => {
+                // 브라우저 자체 인쇄 창 실행 (여기서 PDF로 저장 가능)
+                window.print();
+            });
+        }
+    });
+</script>
