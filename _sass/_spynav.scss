@@ -1,0 +1,62 @@
+// 변수 설정
+$nav-width: 280px;
+$active-color: #000; // 활성 상태 색상
+$muted-color: #aaa; // 비활성 상태 색상
+$hover-bg: #f5f5f5; // 마우스 올렸을 때 배경색
+$transition: all 0.2s ease-in-out;
+
+.spy-nav {
+    position: fixed;
+    left: 50px; // 화면 좌측 여백
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: $nav-width;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        // ❌ 기존 ul에 있던 border-left를 제거합니다.
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        // 1️⃣ 부모인 li 전체에 연한 가이드 라인을 기본으로 깔아줍니다.
+        border-left: 2px solid #eee;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 15px 25px;
+        text-align: left;
+        text-decoration: none;
+        color: $muted-color;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: $transition;
+        // 2️⃣ 꼼수 좌표 이동 제거: 원래 자리에 정직하게 위치시킵니다.
+        margin-left: -2px; // li 선 두께만큼만 왼쪽으로 내밀어서 포갭니다.
+        border-left: 2px solid transparent;
+        // 마우스 올렸을 때 (Hover)
+        &:hover {
+            color: $active-color;
+            background-color: $hover-bg;
+        }
+        // 활성화 상태 (Active)
+        &.active {
+            color: $active-color;
+            font-weight: 700;
+            // 3️⃣ 같은 두께(2px)로 진하게 덮어써서 완벽하게 일치시킵니다.
+            // 만약 선이 조금 더 두꺼운 걸 원하시면 3px로 바꾸고 margin-left를 -3px로 주면 됩니다.
+            border-left: 2px solid $active-color;
+            background-color: transparent; // active 시 배경색은 취향에 따라 제거/유지 가능
+        }
+    }
+    // 반응형
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
