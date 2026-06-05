@@ -17,7 +17,7 @@
                     </div>
                     <div class="content">
                         <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
-                            <button class="prev-button" onclick="prevSlide({{ page.galley_index }})"></button>
+                            <button class="prev-button print-only-off" onclick="prevSlide({{ page.galley_index }})"></button>
                             <div class="gallerys-frame">
                                 <div class="gallerys">
                                         {% if page.youtubeId %}
@@ -48,7 +48,7 @@
                                         {% endfor %}
                                     </div>
                                 </div>
-                            <button class="next-button" onclick="nextSlide({{ page.galley_index }})"></button>
+                            <button class="next-button print-only-off" onclick="nextSlide({{ page.galley_index }})"></button>
                         </div>
                         <div class="info-container">
                             <div class="info-item-dt">참여기간</div>
