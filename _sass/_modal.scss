@@ -6,7 +6,7 @@
 .modal-root {
 	display: none; /* 기본적으로 숨김 */
 	position: fixed;
-	z-index: 1; /* 모달이 다른 콘텐츠 위에 표시되게 */
+	z-index: 500; /* 모달이 다른 콘텐츠 위에 표시되게 */
 	left: 0;
 	top: 0;
 	width: 100%;
