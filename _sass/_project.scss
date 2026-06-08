@@ -169,6 +169,7 @@
     .gallerys {
         display: flex;
         transition: transform 0.3s ease-in-out;
+        margin-right: -1px;
     }
 
     .gallerys-frame {
