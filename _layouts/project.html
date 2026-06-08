@@ -16,22 +16,11 @@
                         </div>
                     </div>
                     <div class="content">
-                        <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
-                            <button class="prev-button print-only-off" onclick="prevSlide({{ page.galley_index }})"></button>
-                            <div class="gallerys-frame">
-                                <div class="gallerys">
-                                        {% if page.youtubeId %}
-                                        <div class="gallery-item">
-                                            <div class="gallery-item-content">
-                                                <div class="print-only-on">
-                                                    <img src="{{ site.baseurl }}/assets/img/post/{{ page.images[0] }}" class="modal">
-                                                </div>
-                                                <div class="print-only-off">
-                                                    {% include youtube.html id=page.youtubeId %}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {% endif %}
+                        <div class="print-only-off">
+                            <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
+                                <button class="prev-button" onclick="prevSlide({{ page.galley_index }})"></button>
+                                <div class="gallerys-frame">
+                                    <div class="gallerys">
                                         {% for image in page.images %}
                                         <div class="gallery-item">
                                             <div class="gallery-item-content">
@@ -46,9 +35,35 @@
                                             </div>
                                         </div>
                                         {% endfor %}
+                                        {% if page.youtubeId %}
+                                        <div class="gallery-item">
+                                            <div class="gallery-item-content">
+                                                <div class="print-only-on">
+                                                    <img src="{{ site.baseurl }}/assets/img/post/{{ page.images[0] }}" class="modal">
+                                                </div>
+                                                <div class="print-only-off">
+                                                    {% include youtube.html id=page.youtubeId %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
                                     </div>
                                 </div>
-                            <button class="next-button print-only-off" onclick="nextSlide({{ page.galley_index }})"></button>
+                                <button class="next-button" onclick="nextSlide({{ page.galley_index }})"></button>
+                            </div>
+                        </div>
+                        <div class="print-only-on">
+                            <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
+                                <div class="gallerys-frame">
+                                    <div class="gallerys">
+                                        <div class="gallery-item">
+                                            <div class="gallery-item-content">
+                                                <img src="{{ site.baseurl }}/assets/img/post/{{ page.images[0] }}" class="modal">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="info-container">
                             <div class="info-item-dt">참여기간</div>
