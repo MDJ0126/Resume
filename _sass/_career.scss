@@ -61,6 +61,14 @@
             font-size: 1em;
             color: $default-color;
         }
+
+        .career-header-tagline {
+            max-width: 760px;
+            margin: 12px 0 0;
+            font-size: 0.95em;
+            line-height: 1.65;
+            color: $default-color;
+        }
     }
 
     .career-header-info {
@@ -78,6 +86,25 @@
         dd {
             margin: 0;
             color: $default-color;
+        }
+    }
+
+    .career-header-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+
+        .skill-chip {
+            display: inline-block;
+            padding: 6px 13px;
+            font-size: 0.82em;
+            font-weight: 600;
+            color: #b3590a;
+            background-color: rgba(245, 130, 31, 0.1);
+            border: 1px solid rgba(245, 130, 31, 0.35);
+            border-radius: 999px;
+            user-select: none;
         }
     }
 
