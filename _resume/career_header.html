@@ -1,0 +1,19 @@
+<div class="career-header">
+    <div class="career-header-title">
+        <h1>경력 기술서</h1>
+        <span class="career-header-subtitle">{{ site.author.job }}<span id="career-experience"></span></span>
+        <script>
+            calculateAndDisplayExperience('{{ site.author.job_start_date }}', document.getElementById('career-experience'));
+        </script>
+    </div>
+    <dl class="career-header-info">
+        <dt>이름</dt>
+        <dd>{{ site.author.name_ko }} ({{ site.author.name_en }})</dd>
+        <dt>직무</dt>
+        <dd>{{ site.author.job }}</dd>
+        <dt>e-mail</dt>
+        <dd><span class="copy">{{ site.author.email }}</span></dd>
+        <dt>연락처</dt>
+        <dd>{{ site.author.phone }}</dd>
+    </dl>
+</div>

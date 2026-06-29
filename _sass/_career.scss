@@ -1,0 +1,142 @@
+// 경력 기술서 페이지 전용 스타일
+
+// 좌측 상단 "메인으로" 돌아가기 링크 (PDF 버튼과 동일한 스타일)
+.back-link {
+    position: fixed;
+    top: 40px;
+    left: 50px;
+    z-index: 101;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    color: #fff;
+    border: 0px solid #000;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+        background-color: #fff;
+        color: #000;
+        border-color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    @media (max-width: $mobile-width) {
+        top: 16px;
+        left: 16px;
+        padding: 12px 20px;
+    }
+}
+
+// 경력 기술서 상단 문서 헤더
+.career-header {
+    padding: 30px 10px 20px;
+    border-bottom: 2px solid $default-shade;
+    margin-bottom: 30px;
+
+    .career-header-title {
+        margin-bottom: 18px;
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 800;
+            color: $default-shade;
+        }
+
+        .career-header-subtitle {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 1em;
+            color: $default-color;
+        }
+    }
+
+    .career-header-info {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        column-gap: 20px;
+        row-gap: 8px;
+        margin: 0;
+
+        dt {
+            font-weight: 700;
+            color: $default-shade;
+        }
+
+        dd {
+            margin: 0;
+            color: $default-color;
+        }
+    }
+
+    @media (max-width: $mobile-width) {
+        padding: 20px 6px 16px;
+
+        .career-header-title h1 {
+            font-size: 1.6em;
+        }
+    }
+}
+
+// 메인 페이지의 "경력 기술서 보기" CTA
+.career-link {
+    text-align: center;
+    padding: 20px 10px 40px;
+
+    .career-link-desc {
+        max-width: 520px;
+        margin: 16px auto 24px;
+        color: $default-color;
+        line-height: 1.6;
+    }
+
+    // PDF 버튼과 동일한 스타일
+    .career-link-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background-color: #000;
+        color: #fff;
+        border: 0px solid #000;
+        transition: all 0.25s ease-in-out;
+
+        &:hover {
+            background-color: #fff;
+            color: #000;
+            border-color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
+
+// 인쇄 시 내비/버튼 숨김
+@media print {
+    .back-link {
+        display: none !important;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    {% include head.html %}
+<body>
+    <div id="loading-block">
+        <div class="loader"></div>
+        <div>경력 기술서 구성 중...</div>
+    </div>
+    <script>
+        document.body.classList.add("loading");
+        window.onload = function () {
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    var block = document.getElementById("loading-block");
+                    if (block) {
+                        block.style.opacity = "0"; // 서서히 투명해짐
+                        setTimeout(() => {
+                            block.remove(); // 완전히 사라진 후 삭제
+                            document.body.classList.remove("loading"); // 로딩 끝나면 스크롤 복원
+                        }, 100); // transition 시간과 동일하게 맞춤 (0.1초)
+                    }
+                }, 0);
+            });
+        };
+    </script>
+    <a class="back-link" href="{{ site.baseurl }}/">← 메인으로</a>
+    <div class="background" style="background-image: url({{ site.baseurl }}/assets/img/common/pattern.png)">
+        <div class="cover">
+            <div class="frame">
+                <main>
+                    {{ content }}
+                </main>
+                <footer>
+                    <div>
+                        <p>
+                            &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> Dongjun Moon.
+                        </p>
+                        <span>
+                            이곳에 서술된 모든 내용과 사용된 소스 코드 등 모든 권리는 저작권자에게 있으며, 라이센스 위반 시 법적 책임이 발생할 수 있습니다.
+                        </span>
+                        <br />
+                        <span>
+                            <a href="https://raw.githubusercontent.com/MDJ0126/Resume/refs/heads/main/LICENSE">LICENSE 확인하기</a>
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    {% include imageModal.html %}
+    {% include pdfButton.html %}
+</body>
+</html>
