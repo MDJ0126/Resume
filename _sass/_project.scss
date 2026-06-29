@@ -1,25 +1,15 @@
 .project {
+    $accent: #f5821f; // 테마 포인트 색상 (주황)
+
     &-box-container {
         position: relative;
-        margin: 20px 0px;
+        margin: 24px 0px;
         background-color: white;
-        border: 1px solid #ebebeb;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 12px 12px -12px #777;
-        -moz-box-shadow: 0 12px 12px -12px #777;
-        box-shadow: 0 12px 12px -12px #777;
-    }
-
-    &-box-container::before {
-        content: "";
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #ff79e2;
+        border: 1px solid #ececec;
+        border-top: 3px solid $accent;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.45);
     }
 
     .item {
@@ -30,8 +20,8 @@
         // 타이틀
         .title {
             &-container {
-                background: linear-gradient(190deg, #bd81ff40, transparent);
-                padding: 20px 30px 20px;
+                padding: 24px 30px;
+                border-bottom: 1px solid #f0f0f0;
             }
 
             &-main {
@@ -99,33 +89,35 @@
                 }
             }
         }
-        // 정보
+        // 정보 (스펙 목록)
         .info {
             &-container {
-                margin: 20px 40px;
-                display: flex;
-                flex-wrap: wrap;
+                margin: 24px 30px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
 
                 @media (max-width: $mobile-width) {
-                    margin: 20px auto;
+                    margin: 20px;
                 }
             }
 
             &-item-dt {
                 user-select: none;
-                flex: 1 1 calc(33.333% - 10px);
-                background-color: #f5f6f9;
-                color: #51555d;
-                padding: 10px 0;
-                text-align: center;
+                font-size: 0.78em;
+                font-weight: 600;
+                letter-spacing: 0.04em;
+                color: #9a9a9a;
+                padding: 14px 10px 4px;
+                text-align: left;
+                border-top: 1px solid #f2f2f2;
             }
 
             &-item-dd {
                 user-select: none;
-                flex: 1 1 calc(33.333% - 10px);
-                padding: 10px 0;
-                margin-bottom: 10px;
-                text-align: center;
+                color: #333;
+                font-weight: 500;
+                padding: 0 10px 14px;
+                text-align: left;
             }
         }
         // 내용
@@ -152,8 +144,11 @@
             .sub-title {
                 user-select: none;
                 font-size: 1em;
-                font-weight: bold;
-                margin: 10px;
+                font-weight: 700;
+                margin: 18px 10px 8px;
+                padding-left: 10px;
+                border-left: 3px solid $accent;
+                line-height: 1.1;
             }
         }
     }
@@ -170,6 +165,17 @@
         display: flex;
         transition: transform 0.3s ease-in-out;
         margin-right: -1px;
+        cursor: grab;
+        touch-action: pan-y; // 세로 스크롤은 유지, 가로 드래그는 스크립트가 처리
+        user-select: none;
+
+        &:active {
+            cursor: grabbing;
+        }
+
+        &:active img {
+            cursor: grabbing;
+        }
     }
 
     .gallerys-frame {
@@ -181,24 +187,34 @@
         min-width: 100%;
 
         &-content {
+            position: relative;
             width: 100%;
-            margin: auto;
+            aspect-ratio: 16 / 9; // 모든 슬라이드 비율 통일 (유튜브와 동일)
+            overflow: hidden;
+            background-color: #f3f3f3; // 여백 발생 시 채움색
 
             img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; // 박스를 꽉 채우도록 비율 유지 크롭
                 vertical-align: middle;
+                cursor: grab; // 갤러리 이미지는 help 대신 드래그 커서
             }
         }
     }
 
     .image-container {
         position: relative;
-        display: inline-block;
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 
     .image-container .image {
         display: block;
-        width: 100%; /* 필요에 따라 조절 */
-        height: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         filter: grayscale(30%) brightness(70%);
     }
 
