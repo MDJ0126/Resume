@@ -210,8 +210,8 @@
         a {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 14px 10px;
+            gap: 10px;
+            padding: 9px 10px;
             text-decoration: none;
             color: inherit;
             border-radius: 6px;
@@ -237,11 +237,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
             background-color: #f1f2f4;
-            font-size: 20px;
+            font-size: 15px;
 
             .github-icon,
             .link-icon {
@@ -250,27 +250,28 @@
         }
 
         strong {
-            font-size: 1.02em;
-            color: $default-shade;
-            flex: 0 0 210px;
-            padding-right: 18px;
+            font-size: 0.92em;
+            font-weight: 600;
+            color: $default-color;
+            flex: 0 0 170px;
+            padding-right: 16px;
 
             @media (max-width: $mobile-width) {
                 flex: 0 0 auto;
-                min-width: 110px;
-                padding-right: 14px;
+                min-width: 100px;
+                padding-right: 12px;
             }
         }
 
         .project-meta {
-            font-size: 0.9em;
+            font-size: 0.82em;
             color: $default-tint;
         }
 
         .project-item-arrow {
             margin-left: auto;
             font-style: normal;
-            font-size: 1.1em;
+            font-size: 1em;
             color: #f5821f;
             opacity: 0;
             transform: translateX(-4px);

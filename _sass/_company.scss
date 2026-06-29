@@ -1,49 +1,30 @@
 .company {
+    // 경력 섹션 카드(box-container) 내부에 들어가므로 자체 카드 장식은 제거 (이중 카드 방지)
     &-box-container {
         position: relative;
-        margin: 20px 0px;
-        background-color: white;
-        border: 1px solid #ebebeb;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 12px 12px -12px #777;
-        -moz-box-shadow: 0 12px 12px -12px #777;
-        box-shadow: 0 12px 12px -12px #777;
-    }
-
-    &-box-container::before {
-        content: "";
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #9fa7ff;
+        margin: 0;
     }
 
     .time {
-        font-size: 1em;
+        font-size: 0.95em;
+        color: $default-color;
         vertical-align: middle;
-        /*position: relative;*/
-        /*top: 0.2em;*/
     }
 
     .title-container {
-        background: linear-gradient(190deg, #5b67ff40, transparent);
-        padding: 20px 30px;
+        padding: 0 0 16px;
+        border-bottom: 1px solid #f0f0f0;
     }
 
     .title {
         margin: auto 10px;
-        font-size: 1.4em;
-        font-weight: bold;
+        font-size: 1.3em;
+        font-weight: 800;
+        color: $default-shade;
         vertical-align: middle;
-        /*position: relative;*/
-        /*top: 0.2em;*/
 
         @media (max-width: $mobile-width) {
-            font-size: 1.2em;
+            font-size: 1.15em;
         }
     }
 
@@ -64,14 +45,24 @@
     }
 
     .content-container {
-        padding: 15px 35px 25px;
+        padding: 18px 0 0;
 
-        @media (max-width: $mobile-width) {
-            padding: 15px 15px 15px;
+        h4 {
+            margin: 20px 0 4px;
+            font-size: 1.05em;
+            font-weight: 700;
+            color: $default-shade;
+
+            &:first-child {
+                margin-top: 0;
+            }
         }
 
         p {
-            padding-left: 10px;
+            margin: 2px 0;
+            padding-left: 0;
+            color: #555;
+            line-height: 1.6;
         }
     }
 }
