@@ -1,0 +1,49 @@
+<div id="projectModal" class="project-modal-root">
+    <button class="project-modal-close" type="button" aria-label="닫기">&times;</button>
+    <div class="project-modal-body" id="projectModalBody"></div>
+</div>
+
+<script>
+    (function () {
+        const modal = document.getElementById("projectModal");
+        const body = document.getElementById("projectModalBody");
+        const closeBtn = modal ? modal.querySelector(".project-modal-close") : null;
+        if (!modal || !body) return;
+
+        function openModal(url) {
+            body.innerHTML = "";
+            loadPost(url, "projectModalBody"); // 상세 글을 fetch해 모달에 주입 (스크립트 포함 실행)
+            modal.classList.add("open");
+            modal.scrollTop = 0;
+            // 모달 열 때 페이지 스크롤 잠금 (스크롤바 폭 보정)
+            document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            modal.classList.remove("open");
+            body.innerHTML = ""; // 재생 중인 영상 정지 등 정리
+            document.body.style.paddingRight = "0";
+            document.body.style.overflow = "";
+        }
+
+        // 프로젝트 항목 클릭 시 모달 오픈
+        document.addEventListener("click", (e) => {
+            const item = e.target.closest(".project-item");
+            if (item && item.dataset.postUrl) {
+                openModal(item.dataset.postUrl);
+            }
+        });
+
+        // 닫기: X 버튼 / 카드 바깥(배경) 클릭
+        if (closeBtn) closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // ESC로 닫기
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+        });
+    })();
+</script>

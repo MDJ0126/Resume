@@ -1,0 +1,332 @@
+// LinkedIn형 섹션 공통 스타일
+
+// 섹션 제목 (카드 내부 좌측 정렬)
+.section-title {
+    margin: 0 0 16px;
+    font-size: 1.35em;
+    font-weight: 800;
+    color: $default-shade;
+    text-align: left;
+
+    // 카드 밖에서 단독으로 쓰일 때 (경력 섹션 등)
+    &--standalone {
+        margin: 0 0 4px 10px;
+    }
+}
+
+// 정보(About)
+.about {
+    padding: 24px 30px;
+
+    @media (max-width: $mobile-width) {
+        padding: 16px 18px;
+    }
+
+    .about-summary {
+        margin: 0 0 18px;
+        font-size: 1.05em;
+        font-weight: 600;
+        line-height: 1.6;
+        color: $default-shade;
+    }
+
+    .about-highlights {
+        list-style: none;
+        margin: 0 0 22px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px 24px;
+
+        @media (max-width: $mobile-width) {
+            grid-template-columns: 1fr;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+            color: $default-color;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 2px;
+                top: 0.55em;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: #f5821f;
+            }
+        }
+    }
+
+    .about-content {
+        color: #444;
+        line-height: 1.75;
+
+        p {
+            margin: 10px 0;
+        }
+    }
+}
+
+// 보유 기술(Skills) — 태그(칩)
+.skills {
+    padding: 24px 30px;
+
+    @media (max-width: $mobile-width) {
+        padding: 16px 18px;
+    }
+
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .skill-tag {
+        display: inline-block;
+        padding: 7px 14px;
+        font-size: 0.9em;
+        font-weight: 500;
+        color: #444;
+        background-color: #f1f2f4;
+        border-radius: 999px;
+        user-select: none;
+    }
+}
+
+// 프로젝트(Projects) 요약
+.projects-summary {
+    padding: 24px 30px;
+
+    @media (max-width: $mobile-width) {
+        padding: 16px 18px;
+    }
+
+    .projects-summary-desc {
+        margin: 0 0 18px;
+        color: $default-color;
+        line-height: 1.6;
+    }
+
+    .projects-summary-list {
+        list-style: none;
+        margin: 0 0 22px;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 10px;
+            border-top: 1px solid #f0f0f0;
+
+            &:last-child {
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            strong {
+                font-size: 1.02em;
+                color: $default-shade;
+                flex: 0 0 210px; // 제목 칸 고정 → 모든 줄의 장르 시작 위치 정렬
+                padding-right: 18px;
+
+                @media (max-width: $mobile-width) {
+                    flex: 0 0 auto;
+                    min-width: 110px;
+                    padding-right: 14px;
+                }
+            }
+
+            span {
+                font-size: 0.9em;
+                color: $default-tint;
+            }
+        }
+
+        // 앱 아이콘
+        .project-item-icon {
+            flex: 0 0 auto;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        // 클릭 가능한 항목
+        .project-item {
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.15s ease;
+
+            .project-item-arrow {
+                margin-left: auto;
+                font-style: normal;
+                font-size: 1.2em;
+                color: #f5821f;
+                opacity: 0;
+                transform: translateX(-4px);
+                transition: opacity 0.15s ease, transform 0.15s ease;
+            }
+
+            &:hover {
+                background-color: #faf6f2;
+
+                strong {
+                    color: #b3590a;
+                }
+
+                .project-item-arrow {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+
+    .projects-personal-title {
+        margin: 28px 0 12px;
+        font-size: 1em;
+        font-weight: 700;
+        color: $default-shade;
+    }
+
+    // 개인 프로젝트 — 위 프로젝트 행과 동일한 룩 (외부 링크)
+    .projects-personal-list {
+        list-style: none;
+        margin: 4px 0 0;
+        padding: 0;
+
+        li {
+            border-top: 1px solid #f0f0f0;
+
+            &:last-child {
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 10px;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 6px;
+            transition: background-color 0.15s ease;
+
+            &:hover {
+                background-color: #faf6f2;
+                text-decoration: none;
+
+                strong {
+                    color: #b3590a;
+                }
+
+                .project-item-arrow {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        .project-link-icon {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: #f1f2f4;
+            font-size: 20px;
+
+            .github-icon,
+            .link-icon {
+                margin: 0;
+            }
+        }
+
+        strong {
+            font-size: 1.02em;
+            color: $default-shade;
+            flex: 0 0 210px;
+            padding-right: 18px;
+
+            @media (max-width: $mobile-width) {
+                flex: 0 0 auto;
+                min-width: 110px;
+                padding-right: 14px;
+            }
+        }
+
+        .project-meta {
+            font-size: 0.9em;
+            color: $default-tint;
+        }
+
+        .project-item-arrow {
+            margin-left: auto;
+            font-style: normal;
+            font-size: 1.1em;
+            color: #f5821f;
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+    }
+}
+
+// 프로젝트 상세 모달 (메인 페이지에서 항목 클릭 시 오버레이)
+.project-modal-root {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 450; // 이미지 모달(500)보다 아래
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-overflow-scrolling: touch;
+
+    &.open {
+        display: block;
+    }
+
+    .project-modal-body {
+        max-width: 880px;
+        margin: 48px auto;
+        padding: 0 16px;
+
+        @media (max-width: $mobile-width) {
+            margin: 24px auto;
+            padding: 0 10px;
+        }
+
+        // 모달 안에서는 카드 위쪽 여백 제거 (중복 방지)
+        .project-box-container {
+            margin: 0;
+        }
+    }
+
+    .project-modal-close {
+        position: fixed;
+        top: 18px;
+        right: 24px;
+        z-index: 2;
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+}
