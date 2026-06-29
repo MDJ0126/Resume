@@ -3,6 +3,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ site.title }}</title>
 
+	<!-- 저장된 테마를 렌더 전에 적용 (다크 모드 깜빡임 방지) -->
+	<script>
+		(function () {
+			try {
+				if (localStorage.getItem("theme") === "dark") {
+					document.documentElement.classList.add("dark");
+				}
+			} catch (e) {}
+		})();
+	</script>
+
 	<!-- robots.txt 수집 불가-->
 	<meta name="robots" content="noindex, nofollow" />
 
@@ -21,6 +32,7 @@
 	<meta name="twitter:image" content="{{ site.thumbnail | relative_url }}">
 
 	<!-- Java Scripts 등록 -->
+	<script src="{{ "/assets/js/accessBlock.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/localhostChecker.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/experienceCalculator.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/postLoader.js" | relative_url }}"></script>
@@ -37,4 +49,15 @@
 
 	<!-- Favicon 등록 -->
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/img/common/favicon.ico" | relative_url }}">
+
+	<!-- 콘솔 이스터에그 (개발자 도구를 여는 분들에게) -->
+	<script>
+		(function () {
+			var big = "font-size:18px;font-weight:bold;color:#f5821f;";
+			var info = "font-size:13px;color:#888;";
+			console.log("%c👋 Hello, Developer!", big);
+			console.log("%c소스까지 봐주셔서 감사합니다. 게임 클라이언트 개발자 문동준입니다.\n채용 제안은 언제든 환영합니다 📩", info);
+			console.log("%c{{ site.author.email }}  ·  {{ site.github }}", info);
+		})();
+	</script>
 </head>
