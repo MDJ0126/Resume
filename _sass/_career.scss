@@ -40,10 +40,10 @@
     }
 }
 
-// 경력 기술서 상단 문서 헤더
+// 경력 기술서 상단 문서 헤더 (박스 없이 자연스러운 문서 제목)
 .career-header {
-    padding: 30px 10px 20px;
-    margin-bottom: 20px;
+    padding: 24px 6px 12px;
+    margin-bottom: 16px;
 
     .career-header-title {
         margin-bottom: 18px;
@@ -53,18 +53,19 @@
             font-size: 2em;
             font-weight: 800;
             color: $default-shade;
+            line-height: 1.1;
         }
 
         .career-header-subtitle {
             display: inline-block;
-            margin-top: 6px;
+            margin: 8px 0 0;
             font-size: 1em;
             color: $default-color;
         }
 
         .career-header-tagline {
             max-width: 760px;
-            margin: 12px 0 0;
+            margin: 14px 0 0;
             font-size: 0.95em;
             line-height: 1.65;
             color: $default-color;
@@ -93,7 +94,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-top: 20px;
+        margin: 20px 0 0;
 
         .skill-chip {
             display: inline-block;
@@ -109,7 +110,7 @@
     }
 
     @media (max-width: $mobile-width) {
-        padding: 20px 6px 16px;
+        padding: 18px 12px 8px;
 
         .career-header-title h1 {
             font-size: 1.6em;
