@@ -10,21 +10,39 @@
         const closeBtn = modal ? modal.querySelector(".project-modal-close") : null;
         if (!modal || !body) return;
 
+        let savedScrollY = 0;
+
         function openModal(url) {
             body.innerHTML = "";
             loadPost(url, "projectModalBody"); // 상세 글을 fetch해 모달에 주입 (스크립트 포함 실행)
             modal.classList.add("open");
             modal.scrollTop = 0;
-            // 모달 열 때 페이지 스크롤 잠금 (스크롤바 폭 보정)
-            document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`;
+
+            // 페이지 스크롤 잠금 — 모바일(iOS 포함)에서도 확실히 잠기도록 body를 고정
+            savedScrollY = window.scrollY || window.pageYOffset || 0;
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${savedScrollY}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.width = "100%";
             document.body.style.overflow = "hidden";
+            if (scrollBarWidth > 0) document.body.style.paddingRight = `${scrollBarWidth}px`;
         }
 
         function closeModal() {
             modal.classList.remove("open");
             body.innerHTML = ""; // 재생 중인 영상 정지 등 정리
-            document.body.style.paddingRight = "0";
+
+            // 스크롤 잠금 해제 후 원래 위치로 복원
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            document.body.style.width = "";
             document.body.style.overflow = "";
+            document.body.style.paddingRight = "";
+            window.scrollTo(0, savedScrollY);
         }
 
         // 프로젝트 항목 클릭 시 모달 오픈
