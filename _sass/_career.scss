@@ -25,6 +25,7 @@
         background-color: #fff;
         color: #000;
         border-color: #000;
+        text-decoration: none; // 전역 a:hover 밑줄 제거
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
