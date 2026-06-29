@@ -33,10 +33,23 @@
         transform: translateY(0);
     }
 
-    @media (max-width: $mobile-width) {
+    // 1500px 미만(양옆 여백이 없는 구간)에서는 본문과 겹치지 않도록
+    // 빈 공간인 우상단에 작은 화살표 버튼으로 고정 (항상 표시 유지)
+    @media (max-width: 1500px) {
         top: 16px;
-        left: 16px;
-        padding: 12px 20px;
+        left: auto;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 18px;
+
+        .back-label {
+            display: none; // 작은 화면에선 화살표만 표시
+        }
     }
 }
 

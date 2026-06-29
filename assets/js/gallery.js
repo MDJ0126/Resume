@@ -5,6 +5,27 @@ function updateGallery(index) {
     const container = document.querySelector("#gallery-container-" + index);
     const gallery = container.querySelector(".gallerys");
     gallery.style.transform = `translateX(-${gallerys[index] * 100}%)`;
+    updateGalleryMedia(index); // 현재 슬라이드 영상만 재생, 나머지는 정지
+}
+
+// 현재 보이는 슬라이드의 유튜브만 재생하고 그 외 영상은 정지
+function updateGalleryMedia(index) {
+    const container = document.querySelector("#gallery-container-" + index);
+    if (!container) return;
+
+    const items = container.querySelectorAll(".gallery-item");
+    const current = gallerys[index] || 0;
+
+    items.forEach((item, i) => {
+        const iframe = item.querySelector("iframe");
+        if (!iframe || !iframe.contentWindow) return;
+
+        const func = (i === current) ? "playVideo" : "pauseVideo";
+        iframe.contentWindow.postMessage(
+            JSON.stringify({ event: "command", func: func, args: [] }),
+            "*"
+        );
+    });
 }
 
 // 'next' 버튼 클릭 시
@@ -93,6 +114,7 @@ function prevSlide(index) {
         gallerys[drag.index] = target;
         drag.el.style.transition = "transform 0.3s ease-in-out";
         drag.el.style.transform = `translateX(-${target * 100}%)`;
+        updateGalleryMedia(drag.index); // 드래그로 넘긴 경우에도 영상 재생/정지 갱신
 
         if (drag.moved) {
             // 드래그 직후 발생하는 클릭(모달 열림)을 한 번 막는다

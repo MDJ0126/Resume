@@ -13,15 +13,6 @@
             0 1px 2px rgba(0, 0, 0, 0.04),
             0 10px 28px -14px rgba(0, 0, 0, 0.16),
             0 4px 12px -6px rgba(0, 0, 0, 0.06);
-        transition: box-shadow 0.35s ease, transform 0.35s ease;
-
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow:
-                0 1px 2px rgba(0, 0, 0, 0.04),
-                0 18px 44px -14px rgba(0, 0, 0, 0.22),
-                0 6px 16px -6px rgba(0, 0, 0, 0.08);
-        }
     }
 
     .item {
@@ -143,30 +134,36 @@
 
             .post-content {
                 padding: 0 5px;
+                color: #444;
 
                 p {
-                    margin: 5px;
+                    margin: 6px 0;
+                    line-height: 1.7;
                 }
             }
 
             ol {
-                margin: 5px;
+                margin: 4px 0;
+
+                li {
+                    margin: 6px 0;
+                    line-height: 1.6;
+                }
             }
 
+            // 섹션 제목 — 선 없이 크기·여백으로 위계 강조
             .sub-title {
                 user-select: none;
-                font-size: 1em;
-                font-weight: 700;
-                margin: 18px 10px 8px;
-                padding-left: 10px;
-                border-left: 3px solid $accent;
-                line-height: 1.1;
+                font-size: 1.14em;
+                font-weight: 800;
+                color: #1f1f1f;
+                margin: 32px 0 14px;
+                line-height: 1.2;
             }
         }
     }
     // 이미지 갤러리
     .gallery-container {
-        display: flex;
         position: relative;
         width: 100%;
         margin: 10px auto;
@@ -192,6 +189,7 @@
 
     .gallerys-frame {
         overflow: hidden;
+        width: 100%;
     }
 
     .gallery-item {
@@ -248,67 +246,99 @@
         }
     }
 
-    .prev-button {
-        color: gray;
+    // 갤러리 내비게이션 — 양 끝 전체 높이를 덮는 넓은 클릭 영역 + 음영(비네팅)
+    .prev-button,
+    .next-button {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 90px;
+        z-index: 5;
+        padding: 0;
         border: none;
-        padding: 50px;
-        background-color: #00000000;
+        cursor: pointer;
+        opacity: 0; // 평소엔 숨김 (화살표·음영 모두)
+        transition: opacity 0.25s ease;
 
         @media (max-width: $mobile-width) {
-            padding: 10px;
+            width: 64px;
+            opacity: 1; // 터치 기기에서는 항상 표시
         }
     }
 
-    .prev-button::before {
-        content: "◀";
-        display: inline-block;
-        position: relative;
-        animation: moveLeftRight 0.5s infinite alternate;
+    // 갤러리에 마우스를 올렸을 때만 화살표·음영 표시
+    .gallery-container:hover .prev-button,
+    .gallery-container:hover .next-button {
+        opacity: 1;
     }
 
-    @keyframes moveLeftRight {
-        0% {
-            transform: translateX(-30%);
-        }
-
-        100% {
-            transform: translateX(20%);
-        }
-    }
-
-    .prev-button:hover {
-        color: #ffae44;
+    // 사진 양 끝 음영 — 안쪽으로 부드럽게 사라짐
+    .prev-button {
+        left: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
     }
 
     .next-button {
-        color: gray;
-        border: none;
-        padding: 50px;
-        background-color: #00000000;
+        right: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
+    }
 
-        @media (max-width: $mobile-width) {
-            padding: 10px;
-        }
+    // 원형 프로스트 버튼 (::before)
+    .prev-button::before,
+    .next-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.85);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .prev-button::before {
+        left: 14px;
     }
 
     .next-button::before {
-        content: "▶";
-        display: inline-block;
-        position: relative;
-        animation: moveRightLeft 0.5s infinite alternate;
+        right: 14px;
     }
 
-    @keyframes moveRightLeft {
-        0% {
-            transform: translateX(30%);
-        }
-
-        100% {
-            transform: translateX(-20%);
-        }
+    .prev-button:hover::before,
+    .next-button:hover::before {
+        background-color: #fff;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        transform: translateY(-50%) scale(1.08);
     }
 
-    .next-button:hover {
-        color: #ffae44;
+    .prev-button:active::before,
+    .next-button:active::before {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    // 쉐브론(화살표) — 원 중앙에 CSS로 그림
+    .prev-button::after,
+    .next-button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 9px;
+        height: 9px;
+        border-top: 2px solid #333;
+        border-right: 2px solid #333;
+    }
+
+    .prev-button::after {
+        left: 35px; // 원 중심(14 + 21)
+        transform: translate(calc(-50% + 1px), -50%) rotate(-135deg);
+    }
+
+    .next-button::after {
+        right: 35px;
+        transform: translate(calc(50% - 1px), -50%) rotate(45deg);
     }
 }
