@@ -9,7 +9,7 @@ open_to_work: true
 # author settings
 author:
   picture: "/assets/img/picture/profile.jpg"
-  name_en: "Dongjun Moon"
+  name_en: "Moon Dongjun"
   name_ko: "문동준"
   birth_date: "19930126"
   email: "ehdwns0126@naver.com"

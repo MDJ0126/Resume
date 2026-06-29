@@ -1,27 +1,39 @@
 <div class="career-header">
-    <div class="career-header-title">
-        <h1>경력 기술서</h1>
-        <span class="career-header-subtitle">{{ site.author.job }}<span id="career-experience"></span></span>
-        <script>
-            calculateAndDisplayExperience('{{ site.author.job_start_date }}', document.getElementById('career-experience'));
-        </script>
-        <p class="career-header-tagline">MOBA · 수집형 RPG · ARPG 3종 출시작에 참여하며, 콘텐츠 개발에서 시작해 아웃게임 프레임워크 설계, 인게임 시스템, 내부 툴 개발·R&D까지 영역을 넓혀온 게임 클라이언트 개발자입니다.</p>
+    <div class="career-header-main">
+        <div class="career-header-title">
+            <h1>경력 기술서</h1>
+            <span class="career-header-subtitle">{{ site.author.job }}<span id="career-experience"></span></span>
+            <script>
+                calculateAndDisplayExperience('{{ site.author.job_start_date }}', document.getElementById('career-experience'));
+            </script>
+            <p class="career-header-tagline">MOBA · 수집형 RPG · ARPG 3종 출시작에 참여하며, 콘텐츠 개발에서 시작해 아웃게임 프레임워크 설계, 인게임 시스템, 내부 툴 개발·R&D까지 영역을 넓혀온 게임 클라이언트 개발자입니다.</p>
+        </div>
+        <dl class="career-header-info">
+            <dt>이름</dt>
+            <dd>{{ site.author.name_ko }} ({{ site.author.name_en }})</dd>
+            <dt>e-mail</dt>
+            <dd><span class="copy">{{ site.author.email }}</span></dd>
+        </dl>
+        <div class="career-header-skills">
+            <span class="skill-chip">Unity</span>
+            <span class="skill-chip">C#</span>
+            <span class="skill-chip">Addressables</span>
+            <span class="skill-chip">uGUI / NGUI</span>
+            <span class="skill-chip">URP</span>
+            <span class="skill-chip">Jenkins · CI/CD</span>
+            <span class="skill-chip">TCP 통신</span>
+        </div>
     </div>
-    <dl class="career-header-info">
-        <dt>이름</dt>
-        <dd>{{ site.author.name_ko }} ({{ site.author.name_en }})</dd>
-        <dt>직무</dt>
-        <dd>{{ site.author.job }}</dd>
-        <dt>e-mail</dt>
-        <dd><span class="copy">{{ site.author.email }}</span></dd>
-    </dl>
-    <div class="career-header-skills">
-        <span class="skill-chip">Unity</span>
-        <span class="skill-chip">C#</span>
-        <span class="skill-chip">Addressables</span>
-        <span class="skill-chip">uGUI / NGUI</span>
-        <span class="skill-chip">URP</span>
-        <span class="skill-chip">Jenkins · CI/CD</span>
-        <span class="skill-chip">TCP 통신</span>
-    </div>
+    <aside class="career-header-highlights">
+        <dl>
+            <dt>주요 출시작</dt>
+            <dd>오버독스 · 데미안 전기 · 라스트 헌터 K</dd>
+            <dt>재직</dt>
+            <dd>(주)해긴 · 2018.09 ~ 재직 중</dd>
+            <dt>학력</dt>
+            <dd>김포대학교 컴퓨터공학</dd>
+            <dt>자격증</dt>
+            <dd>정보처리기사</dd>
+        </dl>
+    </aside>
 </div>
