@@ -106,6 +106,23 @@ html.dark {
         color: #ddd;
     }
 
+    // 개인 프로젝트 제목 / 이름 가독성
+    .projects-summary .projects-personal-title,
+    .projects-personal-list strong {
+        color: #e0e0e0 !important;
+    }
+
+    // 링크 아이콘(검정 PNG)을 밝게 반전
+    .projects-personal-list .project-link-icon .github-icon,
+    .projects-personal-list .project-link-icon .link-icon {
+        filter: invert(1) brightness(1.4);
+    }
+
+    // 이메일 복사 아이콘 등 단색 검정 아이콘 반전
+    .copy-icon {
+        filter: invert(1) brightness(1.4);
+    }
+
     // 항목 hover
     .projects-summary-list .project-item:hover,
     .projects-personal-list a:hover {
