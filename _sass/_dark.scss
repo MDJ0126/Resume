@@ -1,39 +1,9 @@
 // 다크 모드 토글 버튼 (라이트/다크 공통)
-.theme-toggle {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    z-index: 200;
-    width: 46px;
-    height: 46px;
-    border: none;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    }
-
-    @media print {
-        display: none;
-    }
-}
-
 // ─────────────────────────────────────────────
-// 다크 모드
+// 다크 모드  (플로팅 버튼 다크 처리는 _fab.scss 참고)
 // ─────────────────────────────────────────────
 html.dark {
     color: #d6d6d6;
-
-    .theme-toggle {
-        background-color: #2a2c31;
-    }
 
     .background .cover {
         background-color: rgba(16, 17, 20, 0.95);
@@ -42,7 +12,6 @@ html.dark {
     // 카드 (별도 클래스 카드들도 모두 포함)
     .box-container,
     .profile-box-container,
-    .coffeeChat-box-container,
     .project .project-box-container {
         background-color: #1f2125 !important;
         border-color: rgba(255, 255, 255, 0.07) !important;
@@ -134,22 +103,34 @@ html.dark {
         color: #ffb066;
     }
 
-    // 스파이내비
-    .spy-nav li {
-        border-left-color: #3a3a3a;
-    }
-
+    // 스파이내비 (도트 인디케이터)
     .spy-nav .nav-link {
-        color: #777;
+        .nav-text {
+            color: #888;
+        }
+
+        .nav-dot {
+            background-color: #555;
+        }
 
         &:hover {
-            color: #fff;
-            background-color: #26282d;
+            .nav-text {
+                color: #eaeaea;
+            }
+
+            .nav-dot {
+                background-color: #aaa;
+            }
         }
 
         &.active {
-            color: #fff;
-            border-left-color: #fff;
+            .nav-text {
+                color: #f5821f;
+            }
+
+            .nav-dot {
+                background-color: #f5821f;
+            }
         }
     }
 

@@ -1,13 +1,17 @@
-<button id="theme-toggle" class="theme-toggle" type="button" aria-label="다크 모드 전환">🌙</button>
+<button id="theme-toggle" class="fab theme-toggle" type="button" aria-label="다크 모드 전환">
+    <span class="fab-label">테마 변경</span>
+    <span class="fab-icon">🌙</span>
+</button>
 
 <script>
     (function () {
         var btn = document.getElementById("theme-toggle");
         if (!btn) return;
+        var icon = btn.querySelector(".fab-icon");
 
         function sync() {
             var dark = document.documentElement.classList.contains("dark");
-            btn.textContent = dark ? "☀️" : "🌙";
+            if (icon) icon.textContent = dark ? "☀️" : "🌙";
         }
         sync();
 

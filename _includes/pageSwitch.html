@@ -1,0 +1,11 @@
+{% if page.url contains "career" %}
+<a class="page-switch" href="{{ site.baseurl }}/">
+    <span class="page-switch-arrow">←</span>
+    <span class="page-switch-label">이력서</span>
+</a>
+{% else %}
+<a class="page-switch" href="{{ site.baseurl }}/career/">
+    <span class="page-switch-label">경력 기술서</span>
+    <span class="page-switch-arrow">→</span>
+</a>
+{% endif %}

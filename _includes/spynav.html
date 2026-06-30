@@ -1,12 +1,11 @@
 <nav class="spy-nav">
     <ul>
-        <li><a href="#top" class="nav-link active">클라이언트 문동준</a></li>
-        <li><a href="#about" class="nav-link">정보</a></li>
-        <li><a href="#companys" class="nav-link">경력</a></li>
-        <li><a href="#projects" class="nav-link">프로젝트</a></li>
-        <li><a href="#skills" class="nav-link">보유 기술</a></li>
-        <li><a href="#education" class="nav-link">학력·자격</a></li>
-        <li><a href="{{ site.baseurl }}/career/" class="nav-link highlight">경력 기술서<div class="link-icon"></div></a></li>
+        <li><a href="#top" class="nav-link active"><span class="nav-text">클라이언트 문동준</span><span class="nav-dot"></span></a></li>
+        <li><a href="#about" class="nav-link"><span class="nav-text">정보</span><span class="nav-dot"></span></a></li>
+        <li><a href="#companys" class="nav-link"><span class="nav-text">경력</span><span class="nav-dot"></span></a></li>
+        <li><a href="#projects" class="nav-link"><span class="nav-text">프로젝트</span><span class="nav-dot"></span></a></li>
+        <li><a href="#skills" class="nav-link"><span class="nav-text">보유 기술</span><span class="nav-dot"></span></a></li>
+        <li><a href="#education" class="nav-link"><span class="nav-text">학력·자격</span><span class="nav-dot"></span></a></li>
     </ul>
 </nav>
 
@@ -34,6 +33,15 @@
             });
         };
 
+        // 마지막 네비 항목 활성화 / 페이지 맨 아래 판정
+        const activateLast = () => {
+            if (navLinks.length === 0) return;
+            const lastHref = navLinks[navLinks.length - 1].getAttribute("href");
+            activateTab(lastHref.replace("#", ""));
+        };
+        const atBottom = () =>
+            (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 2);
+
         const observer = new IntersectionObserver((entries) => {
             if (isClicked) return;
 
@@ -41,6 +49,12 @@
             // 아래 Observer 판정을 무시하고 무조건 첫 번째 섹션 탭을 켭니다.
             if (window.scrollY === 0 && sections.length > 0) {
                 activateTab(sections[0].getAttribute("id"));
+                return;
+            }
+
+            // 맨 아래에 도달하면 마지막 항목을 활성화 (마지막 섹션이 관찰 범위에 안 걸리는 문제 보정)
+            if (atBottom()) {
+                activateLast();
                 return;
             }
 
@@ -60,6 +74,11 @@
 
             if (window.scrollY === 0 && sections.length > 0) {
                 activateTab(sections[0].getAttribute("id"));
+                return;
+            }
+
+            if (atBottom()) {
+                activateLast();
             }
         });
 

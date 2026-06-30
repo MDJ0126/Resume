@@ -1,58 +1,5 @@
 // 경력 기술서 페이지 전용 스타일
-
-// 좌측 상단 "메인으로" 돌아가기 링크 (PDF 버튼과 동일한 스타일)
-.back-link {
-    position: fixed;
-    top: 40px;
-    left: 50px;
-    z-index: 101;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #000;
-    color: #fff;
-    border: 0px solid #000;
-    transition: all 0.25s ease-in-out;
-
-    &:hover {
-        background-color: #fff;
-        color: #000;
-        border-color: #000;
-        text-decoration: none; // 전역 a:hover 밑줄 제거
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    &:active {
-        transform: translateY(0);
-    }
-
-    // 1500px 미만(양옆 여백이 없는 구간)에서는 본문과 겹치지 않도록
-    // 빈 공간인 우상단에 작은 화살표 버튼으로 고정 (항상 표시 유지)
-    @media (max-width: 1500px) {
-        top: 16px;
-        left: auto;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        gap: 0;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 18px;
-
-        .back-label {
-            display: none; // 작은 화면에선 화살표만 표시
-        }
-    }
-}
+// (이력서 ↔ 경력 기술서 전환 버튼은 _fab.scss 의 .page-switch 참고)
 
 // 경력 기술서 상단 문서 헤더 (좌: 소개 / 우: 하이라이트 2단)
 .career-header {
@@ -226,12 +173,5 @@
         &:active {
             transform: translateY(0);
         }
-    }
-}
-
-// 인쇄 시 내비/버튼 숨김
-@media print {
-    .back-link {
-        display: none !important;
     }
 }
