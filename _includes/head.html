@@ -53,11 +53,17 @@
 	<!-- 콘솔 이스터에그 (개발자 도구를 여는 분들에게) -->
 	<script>
 		(function () {
-			var big = "font-size:18px;font-weight:bold;color:#f5821f;";
-			var info = "font-size:13px;color:#888;";
-			console.log("%c👋 Hello, Developer!", big);
-			console.log("%c소스까지 봐주셔서 감사합니다. 게임 클라이언트 개발자 문동준입니다.\n채용 제안은 언제든 환영합니다 📩", info);
-			console.log("%c{{ site.author.email }}  ·  {{ site.github }}", info);
+			var art = [
+				"  _   _ _____ _     _      ___  ",
+				" | | | | ____| |   | |    / _ \\ ",
+				" | |_| |  _| | |   | |   | | | |",
+				" |  _  | |___| |___| |___| |_| |",
+				" |_| |_|_____|_____|_____|\\___/ "
+			].join("\n");
+
+			console.log("%c" + art, "color:#f5821f;font-family:monospace;font-size:13px;line-height:1.2;");
+			console.log("%cI'm {{ site.author.name_en }} ({{ site.author.name_ko }}), a Game Client Developer.\n소스까지 봐주셔서 감사합니다 :) 채용 제안은 언제든 환영합니다 📩", "font-size:13px;color:#888;");
+			console.log("%c{{ site.author.email }}", "font-size:13px;color:#888;");
 		})();
 	</script>
 </head>
