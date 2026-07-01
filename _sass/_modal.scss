@@ -2,6 +2,11 @@
 	cursor: help;
 }
 
+/* 이미지 모달이 단독으로 열릴 때 페이지 스크롤 잠금 (거터 예약 덕에 흔들림 없음) */
+html.img-modal-open {
+	overflow: hidden;
+}
+
 /* 모달 스타일 */
 .modal-root {
 	display: none; /* 기본적으로 숨김 */
