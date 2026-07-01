@@ -1,9 +1,10 @@
 function copyToClipboard(element) {
     const text = element.innerText || element.textContent;
     navigator.clipboard.writeText(text).then(() => {
-        alert(`\"${text}\"가 클립보드에 복사되었습니다.`);
+        showToast(`"${text}" 복사되었습니다`);
     }).catch(err => {
         console.error('복사 실패:', err);
+        showToast('복사에 실패했습니다');
     });
 }
 
