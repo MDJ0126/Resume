@@ -244,6 +244,12 @@
         }
     }
 
+    // 더 이동할 수 없는 방향의 화살표 숨김
+    .prev-button.nav-hidden,
+    .next-button.nav-hidden {
+        display: none;
+    }
+
     // 갤러리 내비게이션
     .prev-button,
     .next-button {

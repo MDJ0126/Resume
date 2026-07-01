@@ -1,91 +1,100 @@
-let gallerys = {};
+(function () {
+    // 갤러리별 현재 슬라이드 번호
+    const state = {};
 
-// 갤러리 업데이트 함수
-function updateGallery(index) {
-    const container = document.querySelector("#gallery-container-" + index);
-    const gallery = container.querySelector(".gallerys");
-    gallery.style.transform = `translateX(-${gallerys[index] * 100}%)`;
-    updateGalleryMedia(index); // 현재 슬라이드 영상만 재생, 나머지는 정지
-}
-
-// 현재 보이는 슬라이드의 유튜브만 재생하고 그 외 영상은 정지
-function updateGalleryMedia(index) {
-    const container = document.querySelector("#gallery-container-" + index);
-    if (!container) return;
-
-    const items = container.querySelectorAll(".gallery-item");
-    const current = gallerys[index] || 0;
-
-    items.forEach((item, i) => {
-        const iframe = item.querySelector("iframe");
-        if (!iframe || !iframe.contentWindow) return;
-
-        const func = (i === current) ? "playVideo" : "pauseVideo";
-        iframe.contentWindow.postMessage(
-            JSON.stringify({ event: "command", func: func, args: [] }),
-            "*"
-        );
-    });
-}
-
-// 'next' 버튼 클릭 시
-function nextSlide(index) {
-    if (!(index in gallerys)) {
-        gallerys[index] = 0;
-    }
-    const container = document.querySelector("#gallery-container-" + index);
-    const images = container.querySelectorAll(".gallery-item");
-
-    gallerys[index] = (gallerys[index] + 1) % images.length; // index 값 증가
-    updateGallery(index);  // 갤러리 업데이트
-}
-
-// 'prev' 버튼 클릭 시
-function prevSlide(index) {
-    if (!(index in gallerys)) {
-        gallerys[index] = 0;
+    function getEls(index) {
+        const container = document.getElementById("gallery-container-" + index);
+        if (!container) return null;
+        return {
+            container: container,
+            track: container.querySelector(".gallerys"),
+            items: container.querySelectorAll(".gallery-item"),
+            prev: container.querySelector(".prev-button"),
+            next: container.querySelector(".next-button"),
+        };
     }
 
-    const container = document.querySelector("#gallery-container-" + index);
-    const images = container.querySelectorAll(".gallery-item");
+    // 양 끝에서 더 갈 수 없는 방향의 화살표 숨김
+    function updateArrows(index) {
+        const els = getEls(index);
+        if (!els) return;
+        const pos = state[index] || 0;
+        const max = els.items.length - 1;
+        if (els.prev) els.prev.classList.toggle("nav-hidden", pos <= 0);
+        if (els.next) els.next.classList.toggle("nav-hidden", pos >= max);
+    }
 
-    gallerys[index] = (gallerys[index] - 1 + images.length) % images.length; // index 값 감소
-    updateGallery(index);  // 갤러리 업데이트
-}
+    // 현재 슬라이드의 유튜브만 재생, 나머지는 정지
+    function updateMedia(index) {
+        const els = getEls(index);
+        if (!els) return;
+        const pos = state[index] || 0;
+        els.items.forEach((item, i) => {
+            const iframe = item.querySelector("iframe");
+            if (!iframe || !iframe.contentWindow) return;
+            const func = i === pos ? "playVideo" : "pauseVideo";
+            iframe.contentWindow.postMessage(
+                JSON.stringify({ event: "command", func: func, args: [] }), "*"
+            );
+        });
+    }
 
-// 드래그(스와이프)로 슬라이드 넘기기 — 이미지 슬라이드에서만 동작 (유튜브 제외)
-(function enableDragSlide() {
+    function render(index, animate) {
+        const els = getEls(index);
+        if (!els) return;
+        const pos = state[index] || 0;
+        els.track.style.transition = animate ? "transform 0.3s ease-in-out" : "none";
+        els.track.style.transform = "translateX(-" + pos * 100 + "%)";
+        updateMedia(index);
+        updateArrows(index);
+    }
+
+    // 순환 없이 양 끝에서 멈춤 (버튼·드래그 공통)
+    function goToSlide(index, target) {
+        const els = getEls(index);
+        if (!els) return;
+        const max = els.items.length - 1;
+        state[index] = Math.max(0, Math.min(target, max));
+        render(index, true);
+    }
+
+    // 인라인 onclick에서 호출 (전역)
+    window.nextSlide = function (index) {
+        index = Number(index);
+        goToSlide(index, (state[index] || 0) + 1);
+    };
+    window.prevSlide = function (index) {
+        index = Number(index);
+        goToSlide(index, (state[index] || 0) - 1);
+    };
+
+    // ── 드래그(스와이프) — 이미지 슬라이드에서만, 유튜브 제외 ──
     let drag = null;
     let suppressClick = false;
     const MOVE_THRESHOLD = 5;   // 드래그로 판정할 최소 이동량(px)
     const SLIDE_THRESHOLD = 40; // 슬라이드를 넘기는 최소 이동량(px)
 
     document.addEventListener("pointerdown", (e) => {
-        if (e.button && e.button !== 0) return; // 좌클릭/터치만 처리
-
-        const galleryEl = e.target.closest(".gallerys");
-        if (!galleryEl) return;
-        if (e.target.closest(".youtube-container")) return; // 유튜브 위에서는 드래그 비활성
+        if (e.button && e.button !== 0) return;
+        const track = e.target.closest(".gallerys");
+        if (!track || e.target.closest(".youtube-container")) return;
 
         const container = e.target.closest(".gallery-container");
         if (!container) return;
-
         const items = container.querySelectorAll(".gallery-item");
-        if (items.length <= 1) return; // 슬라이드가 하나면 무시
+        if (items.length <= 1) return;
 
-        const index = container.id.replace("gallery-container-", "");
-        if (!(index in gallerys)) gallerys[index] = 0;
-
+        const index = Number(container.id.replace("gallery-container-", ""));
         drag = {
             index: index,
-            el: galleryEl,
+            track: track,
             startX: e.clientX,
-            slideWidth: items[0].offsetWidth, // 슬라이드 한 칸 너비
-            base: gallerys[index],            // 드래그 시작 시점의 슬라이드 번호
+            slideWidth: items[0].offsetWidth,
+            base: state[index] || 0,
             count: items.length,
             moved: false,
         };
-        galleryEl.style.transition = "none";
+        track.style.transition = "none";
     });
 
     document.addEventListener("pointermove", (e) => {
@@ -94,31 +103,24 @@ function prevSlide(index) {
         if (Math.abs(delta) > MOVE_THRESHOLD) drag.moved = true;
 
         // 양 끝에선 저항감
-        const atStart = drag.base === 0 && delta > 0;
-        const atEnd = drag.base === drag.count - 1 && delta < 0;
-        if (atStart || atEnd) delta *= 0.3;
+        const atEdge = (drag.base === 0 && delta > 0) || (drag.base === drag.count - 1 && delta < 0);
+        if (atEdge) delta *= 0.3;
 
-        const offset = -(drag.base * drag.slideWidth) + delta;
-        drag.el.style.transform = `translateX(${offset}px)`;
+        drag.track.style.transform = "translateX(" + (-(drag.base * drag.slideWidth) + delta) + "px)";
     });
 
     function endDrag(e) {
         if (!drag) return;
         const delta = e.clientX - drag.startX;
 
-        // 양 끝에서 멈춤 (순환 없음)
         let target = drag.base;
-        if (delta <= -SLIDE_THRESHOLD) target = Math.min(drag.base + 1, drag.count - 1);
-        else if (delta >= SLIDE_THRESHOLD) target = Math.max(drag.base - 1, 0);
+        if (delta <= -SLIDE_THRESHOLD) target = drag.base + 1;
+        else if (delta >= SLIDE_THRESHOLD) target = drag.base - 1;
 
-        gallerys[drag.index] = target;
-        drag.el.style.transition = "transform 0.3s ease-in-out";
-        drag.el.style.transform = `translateX(-${target * 100}%)`;
-        updateGalleryMedia(drag.index); // 드래그로 넘긴 경우에도 영상 재생/정지 갱신
+        goToSlide(drag.index, target);
 
         if (drag.moved) {
-            // 드래그 직후 클릭 무시
-            suppressClick = true;
+            suppressClick = true; // 드래그 직후 클릭(모달 오픈) 무시
             setTimeout(() => { suppressClick = false; }, 0);
         }
         drag = null;
@@ -127,7 +129,6 @@ function prevSlide(index) {
     document.addEventListener("pointerup", endDrag);
     document.addEventListener("pointercancel", endDrag);
 
-    // 드래그 직후 클릭 차단 (캡처 단계)
     document.addEventListener("click", (e) => {
         if (suppressClick) {
             e.stopPropagation();
@@ -135,8 +136,18 @@ function prevSlide(index) {
         }
     }, true);
 
-    // 이미지의 기본 드래그(고스트 이미지) 방지
+    // 이미지 기본 드래그(고스트) 방지
     document.addEventListener("dragstart", (e) => {
         if (e.target.closest(".gallerys")) e.preventDefault();
     });
+
+    // 갤러리 로드 후 초기 상태(화살표 표시 등) 설정
+    function initGalleries() {
+        document.querySelectorAll(".gallery-container").forEach((c) => {
+            const index = Number(c.id.replace("gallery-container-", ""));
+            if (!Number.isNaN(index)) render(index, false);
+        });
+    }
+    document.addEventListener("DOMContentLoaded", initGalleries);
+    document.addEventListener("postsloaded", initGalleries); // loadPost로 뒤늦게 삽입된 갤러리
 })();
