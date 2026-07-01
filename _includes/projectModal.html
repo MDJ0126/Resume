@@ -12,37 +12,51 @@
 
         let savedScrollY = 0;
 
-        function openModal(url) {
-            body.innerHTML = "";
-            loadPost(url, "projectModalBody");
-            modal.classList.add("open");
-            modal.scrollTop = 0;
-
-            // 스크롤 잠금 (body 고정)
+        function lockScroll() {
             savedScrollY = window.scrollY || window.pageYOffset || 0;
-            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
             document.body.style.position = "fixed";
             document.body.style.top = `-${savedScrollY}px`;
             document.body.style.left = "0";
             document.body.style.right = "0";
             document.body.style.width = "100%";
             document.body.style.overflow = "hidden";
-            if (scrollBarWidth > 0) document.body.style.paddingRight = `${scrollBarWidth}px`;
         }
 
-        function closeModal() {
-            modal.classList.remove("open");
-            body.innerHTML = ""; // 재생 중인 영상 정지 등 정리
-
-            // 스크롤 잠금 해제 후 원래 위치로 복원
+        function unlockScroll() {
             document.body.style.position = "";
             document.body.style.top = "";
             document.body.style.left = "";
             document.body.style.right = "";
             document.body.style.width = "";
             document.body.style.overflow = "";
-            document.body.style.paddingRight = "";
             window.scrollTo(0, savedScrollY);
+        }
+
+        function openModal(url) {
+            const root = document.documentElement;
+            const alreadyOpen = root.classList.contains("modal-open");
+            body.innerHTML = "";
+            loadPost(url, "projectModalBody");
+            modal.classList.add("open");
+            modal.scrollTop = 0;
+            if (!alreadyOpen) {
+                const sbw = window.innerWidth - root.clientWidth;
+                root.style.setProperty("--modal-sbw", sbw + "px");
+                root.classList.add("modal-open");
+                lockScroll();
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove("open");
+            // 페이드아웃이 끝난 뒤 잠금 해제 + 내용 비우기 (도중에 다시 열리면 유지)
+            window.setTimeout(() => {
+                if (modal.classList.contains("open")) return;
+                unlockScroll();
+                document.documentElement.classList.remove("modal-open");
+                document.documentElement.style.removeProperty("--modal-sbw");
+                body.innerHTML = "";
+            }, 260);
         }
 
         // 프로젝트 항목 클릭 시 모달 오픈

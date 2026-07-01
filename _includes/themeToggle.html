@@ -16,11 +16,16 @@
         sync();
 
         btn.addEventListener("click", function () {
-            var dark = document.documentElement.classList.toggle("dark");
+            var root = document.documentElement;
+            root.classList.add("theme-transition");
+            var dark = root.classList.toggle("dark");
             try {
                 localStorage.setItem("theme", dark ? "dark" : "light");
             } catch (e) {}
             sync();
+            window.setTimeout(function () {
+                root.classList.remove("theme-transition");
+            }, 320);
         });
     })();
 </script>

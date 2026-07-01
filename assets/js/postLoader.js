@@ -1,4 +1,7 @@
+window.__pendingPosts = 0;
+
 function loadPost(url, targetId) {
+    window.__pendingPosts++;
     fetch(url)
         .then(response => response.text())
         .then(html => {
@@ -23,5 +26,11 @@ function loadPost(url, targetId) {
                 document.body.removeChild(newScript);  // 실행 후 제거
             });
         })
-        .catch(error => console.error('Error loading post:', error));
+        .catch(error => console.error('Error loading post:', error))
+        .finally(() => {
+            window.__pendingPosts--;
+            if (window.__pendingPosts <= 0) {
+                document.dispatchEvent(new Event('postsloaded'));
+            }
+        });
 }

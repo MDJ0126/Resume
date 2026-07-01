@@ -1,6 +1,22 @@
 html {
     scrollbar-width: thin;
     scrollbar-color: #c9c9c9 transparent;
+    scrollbar-gutter: stable; /* 처음부터 스크롤바 자리 예약 → 콘텐츠 로드 후 스크롤바 생겨도 안 밀림 */
+}
+
+/* 모달 열릴 땐 예약을 해제하고, 사라진 폭만큼 보정해 겹침·빈칸·밀림 방지 */
+html.modal-open {
+    scrollbar-gutter: auto;
+}
+
+html.modal-open .fab,
+html.modal-open .page-switch,
+html.modal-open .spy-nav {
+    margin-right: var(--modal-sbw, 0px);
+}
+
+html.modal-open body {
+    padding-right: var(--modal-sbw, 0px);
 }
 
 ::-webkit-scrollbar {

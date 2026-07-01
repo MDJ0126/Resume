@@ -271,7 +271,8 @@
 }
 
 .project-modal-root {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     position: fixed;
     inset: 0;
     z-index: 450;
@@ -279,15 +280,24 @@
     overscroll-behavior: contain;
     background-color: rgba(0, 0, 0, 0.6);
     -webkit-overflow-scrolling: touch;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
 
     &.open {
-        display: block;
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.25s ease;
+
+        .project-modal-body {
+            transform: translateY(0);
+        }
     }
 
     .project-modal-body {
         max-width: 880px;
         margin: 48px auto;
         padding: 0 16px;
+        transform: translateY(16px);
+        transition: transform 0.28s ease;
 
         @media (max-width: $mobile-width) {
             margin: 24px auto;

@@ -1,3 +1,14 @@
+// 테마 전환 순간에만 색상 트랜지션 적용 (토글 시 JS가 클래스 부여 후 제거)
+.theme-transition,
+.theme-transition * {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease !important;
+}
+
 html.dark {
     color: #d6d6d6;
 
