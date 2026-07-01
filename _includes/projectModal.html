@@ -14,11 +14,11 @@
 
         function openModal(url) {
             body.innerHTML = "";
-            loadPost(url, "projectModalBody"); // 상세 글을 fetch해 모달에 주입 (스크립트 포함 실행)
+            loadPost(url, "projectModalBody");
             modal.classList.add("open");
             modal.scrollTop = 0;
 
-            // 페이지 스크롤 잠금 — 모바일(iOS 포함)에서도 확실히 잠기도록 body를 고정
+            // 스크롤 잠금 (body 고정)
             savedScrollY = window.scrollY || window.pageYOffset || 0;
             const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
             document.body.style.position = "fixed";

@@ -1,7 +1,3 @@
-// 다크 모드 토글 버튼 (라이트/다크 공통)
-// ─────────────────────────────────────────────
-// 다크 모드  (플로팅 버튼 다크 처리는 _fab.scss 참고)
-// ─────────────────────────────────────────────
 html.dark {
     color: #d6d6d6;
 
@@ -9,7 +5,6 @@ html.dark {
         background-color: rgba(16, 17, 20, 0.95);
     }
 
-    // 카드 (별도 클래스 카드들도 모두 포함)
     .box-container,
     .profile-box-container,
     .project .project-box-container {
@@ -20,20 +15,15 @@ html.dark {
             0 12px 30px -14px rgba(0, 0, 0, 0.7) !important;
     }
 
-    // 프로필 카드 텍스트
     .profile {
         color: #d6d6d6;
 
-        h2 {
-            color: #f1f1f1;
-        }
-
+        h2,
         dt {
             color: #f1f1f1;
         }
     }
 
-    // 제목 / 강조 텍스트
     .section-title,
     .about .about-summary,
     .company .title,
@@ -42,7 +32,6 @@ html.dark {
         color: #f1f1f1;
     }
 
-    // 본문 / 보조 텍스트
     .about .about-content,
     .about .about-content p,
     .about .about-highlights li,
@@ -61,38 +50,29 @@ html.dark {
         color: #8a8a8a;
     }
 
-    // 경계선
     .company .title-container,
     .projects-summary-list li,
     .projects-personal-list li {
         border-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    // 칩 / 아이콘 박스
     .skills .skill-tag,
     .projects-personal-list .project-link-icon {
         background-color: #2c2f35;
         color: #ddd;
     }
 
-    // 개인 프로젝트 제목 / 이름 가독성
     .projects-summary .projects-personal-title,
     .projects-personal-list strong {
         color: #e0e0e0 !important;
     }
 
-    // 링크 아이콘(검정 PNG)을 밝게 반전
     .projects-personal-list .project-link-icon .github-icon,
-    .projects-personal-list .project-link-icon .link-icon {
-        filter: invert(1) brightness(1.4);
-    }
-
-    // 이메일 복사 아이콘 등 단색 검정 아이콘 반전
+    .projects-personal-list .project-link-icon .link-icon,
     .copy-icon {
         filter: invert(1) brightness(1.4);
     }
 
-    // 항목 hover
     .projects-summary-list .project-item:hover,
     .projects-personal-list a:hover {
         background-color: rgba(245, 130, 31, 0.14);
@@ -103,7 +83,6 @@ html.dark {
         color: #ffb066;
     }
 
-    // 스파이내비 (도트 인디케이터)
     .spy-nav .nav-link {
         .nav-text {
             color: #888;
@@ -134,7 +113,6 @@ html.dark {
         }
     }
 
-    // 상단 바 / 푸터
     .top {
         color: #d6d6d6;
     }
@@ -143,7 +121,6 @@ html.dark {
         color: #888;
     }
 
-    // 경력 기술서 헤더
     .career-header {
         .career-header-title h1,
         .career-header-info dt {
@@ -163,7 +140,6 @@ html.dark {
         }
     }
 
-    // 경력 기술서 프로젝트 상세 카드 (기존 셀렉터가 깊어 !important 필요)
     .project {
         .title-container {
             border-bottom-color: rgba(255, 255, 255, 0.08);

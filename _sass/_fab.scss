@@ -1,11 +1,10 @@
-// 우하단 플로팅 액션 버튼 — 호버 시 라벨이 옆으로 펼쳐짐 (확장형 FAB)
 .fab {
     position: fixed;
     right: 18px;
     z-index: 200;
     display: flex;
     align-items: center;
-    justify-content: flex-end; // 아이콘을 우측에 고정, 라벨은 왼쪽으로 펼쳐짐
+    justify-content: flex-end;
     height: 44px;
     padding: 0;
     border: none;
@@ -67,7 +66,6 @@
     }
 }
 
-// 개별 위치 (아래 → 위: 테마 → PDF → 카카오)
 .theme-toggle {
     bottom: 24px;
 }
@@ -78,7 +76,7 @@
 
 .coffee-chat-fab {
     bottom: 132px;
-    background-color: #fae100; // 카카오 옐로우 (색으로 메인 액션 구분)
+    background-color: #fae100;
 }
 
 @media (max-width: $mobile-width) {
@@ -95,7 +93,6 @@
     }
 }
 
-// 다크 모드: 유틸 버튼만 어둡게 (카카오는 노랑 유지)
 html.dark {
     .theme-toggle,
     .pdf-btn {
@@ -104,7 +101,6 @@ html.dark {
     }
 }
 
-// 페이지 전환 버튼 (이력서 ↔ 경력 기술서) — 양 페이지 상단 우측 동일 위치
 .page-switch {
     position: fixed;
     top: 35px;

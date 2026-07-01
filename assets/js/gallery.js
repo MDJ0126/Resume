@@ -93,7 +93,7 @@ function prevSlide(index) {
         let delta = e.clientX - drag.startX;
         if (Math.abs(delta) > MOVE_THRESHOLD) drag.moved = true;
 
-        // 양 끝에서 바깥으로 더 당기면 저항감을 줘서 빈 공간 노출을 줄임
+        // 양 끝에선 저항감
         const atStart = drag.base === 0 && delta > 0;
         const atEnd = drag.base === drag.count - 1 && delta < 0;
         if (atStart || atEnd) delta *= 0.3;
@@ -106,7 +106,7 @@ function prevSlide(index) {
         if (!drag) return;
         const delta = e.clientX - drag.startX;
 
-        // 드래그는 순환(wrap) 없이 양 끝에서 멈춤 — 끝에서 더 넘기려 해도 제자리 복귀
+        // 양 끝에서 멈춤 (순환 없음)
         let target = drag.base;
         if (delta <= -SLIDE_THRESHOLD) target = Math.min(drag.base + 1, drag.count - 1);
         else if (delta >= SLIDE_THRESHOLD) target = Math.max(drag.base - 1, 0);
@@ -117,7 +117,7 @@ function prevSlide(index) {
         updateGalleryMedia(drag.index); // 드래그로 넘긴 경우에도 영상 재생/정지 갱신
 
         if (drag.moved) {
-            // 드래그 직후 발생하는 클릭(모달 열림)을 한 번 막는다
+            // 드래그 직후 클릭 무시
             suppressClick = true;
             setTimeout(() => { suppressClick = false; }, 0);
         }
@@ -127,7 +127,7 @@ function prevSlide(index) {
     document.addEventListener("pointerup", endDrag);
     document.addEventListener("pointercancel", endDrag);
 
-    // 드래그 직후의 클릭은 캡처 단계에서 차단해 모달이 뜨지 않게 함
+    // 드래그 직후 클릭 차단 (캡처 단계)
     document.addEventListener("click", (e) => {
         if (suppressClick) {
             e.stopPropagation();
