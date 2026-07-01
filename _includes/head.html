@@ -1,7 +1,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ site.title }}</title>
+
+	<!-- 비공개일 땐 제목/설명에 개인 정보(이름·이력서명) 노출 안 함 -->
+	{% if site.public %}{% assign meta_title = site.title %}{% assign meta_desc = site.desc %}{% else %}{% assign meta_title = "비공개" %}{% assign meta_desc = "" %}{% endif %}
+	<title>{{ meta_title }}</title>
 
 	<!-- 저장된 테마를 렌더 전에 적용 (다크 모드 깜빡임 방지) -->
 	<script>
@@ -20,15 +23,15 @@
 	<!-- 일반적인 링크 공유 카드 디자인-->
 	<meta property="og:type" content="profile">
 	<meta property="og:url" content="{{ site.baseurl }}">
-	<meta property="og:title" content="{{ site.title }}">
-	<meta property="og:description" content="{{ site.desc }}">
+	<meta property="og:title" content="{{ meta_title }}">
+	<meta property="og:description" content="{{ meta_desc }}">
 	<meta property="og:image" content="{{ site.thumbnail | relative_url }}">
-	<meta property="og:site_name" content="{{ site.title }}">
+	<meta property="og:site_name" content="{{ meta_title }}">
 
 	<!-- Twitter 링크 공유 카드 디자인 -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="{{ site.title }}">
-	<meta name="twitter:description" content="{{ site.desc }}">
+	<meta name="twitter:title" content="{{ meta_title }}">
+	<meta name="twitter:description" content="{{ meta_desc }}">
 	<meta name="twitter:image" content="{{ site.thumbnail | relative_url }}">
 
 	<!-- Java Scripts 등록 -->
@@ -47,8 +50,12 @@
 	<!-- Font 등록 -->
 	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/font/font.css">
 
-	<!-- Favicon 등록 -->
+	<!-- Favicon (비공개일 땐 표시 안 함) -->
+	{% if site.public %}
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/img/common/favicon.ico" | relative_url }}">
+	{% else %}
+	<link rel="icon" href="data:,">
+	{% endif %}
 
 	<!-- 콘솔 이스터에그 (개발자 도구를 여는 분들에게) -->
 	<script>

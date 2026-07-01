@@ -2,6 +2,7 @@
 <html lang="ko">
     {% include head.html %}
 <body>
+    {% if site.public %}
     <div id="loading-block">
         <div class="loader"></div>
         <div>이력서 사이트 구성 중...</div>
@@ -54,5 +55,8 @@
     {% include themeToggle.html %}
     {% include coffeeChat.html %}
     {% include pageSwitch.html %}
+    {% else %}
+    {% include private_notice.html %}
+    {% endif %}
 </body>
 </html>
