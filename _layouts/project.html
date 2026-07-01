@@ -26,9 +26,9 @@
                                             <div class="gallery-item-content">
                                                 <div class="image-container">
                                                     {% if page.released %}
-                                                    <img src="{{ site.baseurl }}/assets/img/post/{{ image }}" class="modal">
+                                                    <img src="{{ site.baseurl }}/assets/img/post/{{ image }}" class="modal" loading="lazy" decoding="async">
                                                     {% else %}
-                                                    <img src="{{ site.baseurl }}/assets/img/post/{{ image }}" class="modal image">
+                                                    <img src="{{ site.baseurl }}/assets/img/post/{{ image }}" class="modal image" loading="lazy" decoding="async">
                                                     <div class="overlay-text">생성형 AI로 만들어진 예시 이미지입니다.</div>
                                                     {% endif %}
                                                 </div>

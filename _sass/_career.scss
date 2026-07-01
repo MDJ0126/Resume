@@ -133,45 +133,17 @@
     }
 }
 
-// 메인 페이지의 "경력 기술서 보기" CTA
-.career-link {
-    text-align: center;
-    padding: 20px 10px 40px;
+// "경력 기술서 전체 보기" 링크 (프로젝트 섹션 내) — 라이트/다크 모두 잘 보이는 주황 텍스트
+.career-link-button {
+    display: inline-block;
+    margin: 4px 0 4px;
+    font-size: 0.95em;
+    font-weight: 700;
+    color: #b3590a;
+    text-decoration: none;
 
-    .career-link-desc {
-        max-width: 520px;
-        margin: 16px auto 24px;
-        color: $default-color;
-        line-height: 1.6;
-    }
-
-    // PDF 버튼과 동일한 스타일
-    .career-link-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 20px;
-        font-size: 15px;
-        font-weight: 600;
+    &:hover {
+        color: #f5821f;
         text-decoration: none;
-        cursor: pointer;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        background-color: #000;
-        color: #fff;
-        border: 0px solid #000;
-        transition: all 0.25s ease-in-out;
-
-        &:hover {
-            background-color: #fff;
-            color: #000;
-            border-color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        &:active {
-            transform: translateY(0);
-        }
     }
 }
