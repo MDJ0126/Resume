@@ -31,11 +31,18 @@
         const pos = state[index] || 0;
         els.items.forEach((item, i) => {
             const iframe = item.querySelector("iframe");
-            if (!iframe || !iframe.contentWindow) return;
-            const func = i === pos ? "playVideo" : "pauseVideo";
-            iframe.contentWindow.postMessage(
-                JSON.stringify({ event: "command", func: func, args: [] }), "*"
-            );
+            if (iframe && iframe.contentWindow) {
+                const func = i === pos ? "playVideo" : "pauseVideo";
+                iframe.contentWindow.postMessage(
+                    JSON.stringify({ event: "command", func: func, args: [] }), "*"
+                );
+            }
+            // 폴백 <video> 도 현재 슬라이드만 재생, 나머지 정지
+            const video = item.querySelector("video");
+            if (video) {
+                if (i === pos) { const p = video.play(); if (p) p.catch(() => {}); }
+                else video.pause();
+            }
         });
     }
 
