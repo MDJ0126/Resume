@@ -57,14 +57,44 @@ html.dark {
     }
 
     .projects-summary-list span,
-    .projects-personal-list .project-meta {
+    .projects-personal-list .project-meta,
+    .information .cert-date,
+    .information .cert-meta {
         color: #8a8a8a;
     }
 
     .company .title-container,
+    .information .cert-item,
     .projects-summary-list li,
     .projects-personal-list li {
         border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .information .cert-title,
+    .information .cert-issuer {
+        color: #f1f1f1;
+    }
+
+    .company .content-container {
+        .role-item::before {
+            background-color: #777;
+        }
+
+        .role-item::after {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .role-desc {
+            color: #d6d6d6 !important;
+        }
+    }
+
+    .company .title-container[role="button"]::after {
+        border-color: #aaa;
+    }
+
+    .information .cert-summary::after {
+        border-color: #aaa;
     }
 
     .skills .skill-tag,
