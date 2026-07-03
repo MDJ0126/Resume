@@ -4,12 +4,27 @@
 <body>
     {% if site.public %}
     <div id="loading-block">
-        <div class="loader"></div>
-        <div>경력 기술서 구성 중...</div>
+        <div class="loader-card" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="loader-text"><span class="loader-message">경력 기술서 화면 준비 중</span><span class="loader-dots" aria-hidden="true"></span></div>
     </div>
     <script>
         document.body.classList.add("loading");
         (function () {
+            var messages = [
+                "경력 기술서를 구성하고 있어요",
+                "프로젝트 기록을 불러오고 있어요",
+                "경력 내용을 준비하고 있어요",
+                "곧 경력 기술서가 열려요"
+            ];
+            var message = document.querySelector("#loading-block .loader-message");
+            if (message) {
+                message.textContent = messages[Math.floor(Math.random() * messages.length)];
+            }
+
             var removed = false;
             function removeLoading() {
                 if (removed) return;
