@@ -13,7 +13,6 @@ function initializeCompanyToggles() {
         header.setAttribute("tabindex", "0");
         header.setAttribute("aria-controls", contentId);
         header.setAttribute("aria-expanded", "false");
-        header.setAttribute("title", "경력 상세 펼치기");
 
         company.classList.add("is-collapsed");
         content.style.height = "0px";
@@ -26,28 +25,45 @@ function initializeCompanyToggles() {
             }
         });
 
-        const toggle = () => {
-            const isCollapsed = company.classList.contains("is-collapsed");
+        const closeCompany = targetCompany => {
+            if (targetCompany.classList.contains("is-collapsed")) return;
 
-            if (isCollapsed) {
-                content.style.height = "0px";
-                company.classList.remove("is-collapsed");
-                header.setAttribute("aria-expanded", "true");
-                header.setAttribute("title", "경력 상세 접기");
-                requestAnimationFrame(() => {
-                    content.style.height = `${content.scrollHeight}px`;
-                });
+            const targetHeader = targetCompany.querySelector(".title-container");
+            const targetContent = targetCompany.querySelector(".content-container");
+            if (!targetHeader || !targetContent) return;
+
+            targetContent.style.height = `${targetContent.scrollHeight}px`;
+            targetContent.offsetHeight;
+            targetCompany.classList.add("is-collapsed");
+            targetHeader.setAttribute("aria-expanded", "false");
+            requestAnimationFrame(() => {
+                targetContent.style.height = "0px";
+            });
+        };
+
+        const openCompany = () => {
+            content.style.height = "0px";
+            company.classList.remove("is-collapsed");
+            header.setAttribute("aria-expanded", "true");
+            requestAnimationFrame(() => {
+                content.style.height = `${content.scrollHeight}px`;
+            });
+        };
+
+        const toggle = () => {
+            if (company.classList.contains("is-collapsed")) {
+                const group = company.closest(".companys");
+                if (group) {
+                    group.querySelectorAll(".company .company-box-container").forEach(otherCompany => {
+                        if (otherCompany !== company) closeCompany(otherCompany);
+                    });
+                }
+
+                openCompany();
                 return;
             }
 
-            content.style.height = `${content.scrollHeight}px`;
-            content.offsetHeight;
-            company.classList.add("is-collapsed");
-            header.setAttribute("aria-expanded", "false");
-            header.setAttribute("title", "경력 상세 펼치기");
-            requestAnimationFrame(() => {
-                content.style.height = "0px";
-            });
+            closeCompany(company);
         };
 
         header.addEventListener("click", toggle);

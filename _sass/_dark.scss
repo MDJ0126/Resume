@@ -64,6 +64,7 @@ html.dark {
     }
 
     .company .title-container,
+    .companys [id^="companys-post-container-"] + [id^="companys-post-container-"],
     .information .cert-item,
     .projects-summary-list li,
     .projects-personal-list li {
