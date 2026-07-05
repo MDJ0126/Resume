@@ -7,10 +7,11 @@
         <ul class="projects-summary-list">
             {% assign category = "projects" %}
             {% for post in site.categories[category] reversed %}
-            <li class="project-item" data-post-url="{{ site.baseurl }}{{ post.url }}">
+            <li class="project-item{% if post.latest %} project-item--latest{% endif %}" data-post-url="{{ site.baseurl }}{{ post.url }}">
                 <img class="project-item-icon" src="{{ site.baseurl }}/assets/img/icon/{{ post.icon }}" alt="{{ post.title }}">
                 <strong>{{ post.title }}</strong>
                 <span>{{ post.genre }} · {{ post.release }}</span>
+                {% if post.latest %}<span class="project-latest-badge">최근 출시</span>{% endif %}
                 <em class="project-item-arrow">›</em>
             </li>
             {% endfor %}

@@ -152,8 +152,29 @@
             border-radius: 6px;
             transition: background-color 0.15s ease;
 
-            .project-item-arrow {
+            &--latest {
+                background-color: #fff8f2;
+                border-top-color: #f3dfcc;
+
+                &:last-child {
+                    border-bottom-color: #f3dfcc;
+                }
+            }
+
+            .project-latest-badge {
+                display: inline-block;
                 margin-left: auto;
+                padding: 2px 7px;
+                border-radius: 999px;
+                font-size: 0.72em;
+                font-weight: 700;
+                color: #b3590a;
+                background-color: rgba(245, 130, 31, 0.12);
+                vertical-align: middle;
+            }
+
+            .project-item-arrow {
+                margin-left: 4px;
                 font-style: normal;
                 font-size: 1.2em;
                 color: #f5821f;

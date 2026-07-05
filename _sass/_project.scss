@@ -82,6 +82,17 @@
                 content: ")";
             }
 
+            &-latest-badge {
+                display: inline-block;
+                padding: 3px 8px;
+                border-radius: 999px;
+                font-size: 0.72em;
+                font-weight: 700;
+                color: #b3590a;
+                background-color: rgba(245, 130, 31, 0.12);
+                margin-top: -0.2em;
+            }
+
             &-member {
                 font-size: 0.9em;
                 margin-top: -0.2em;

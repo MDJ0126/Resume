@@ -7,6 +7,7 @@
                         <div class="title-main">
                             <img class="title-icon" src="{{ site.baseurl }}/assets/img/icon/{{ page.icon }}" alt="{{ page.title }}">
                             <span class="title-text">{{ page.title }}</span><span class="title-release">{{ page.release }}</span>
+                            {% if page.latest %}<span class="title-latest-badge">최근 출시</span>{% endif %}
                             <span class="title-member">{{ page.member }}</span>
                         </div>
                         <div class="title-sub">
@@ -89,6 +90,14 @@
                             <li>{{ item }}</li>
                             {% endfor %}
                         </ol>
+                        {% if page.highlights %}
+                        <div class="sub-title">성과</div>
+                        <ol>
+                            {% for item in page.highlights %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ol>
+                        {% endif %}
                         <div class="sub-title">인사이트</div>
                         <div class="post-content">
                             {{ page.content }}

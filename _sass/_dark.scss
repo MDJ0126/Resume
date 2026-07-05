@@ -120,6 +120,16 @@ html.dark {
         background-color: rgba(245, 130, 31, 0.14);
     }
 
+    .projects-summary-list .project-item--latest {
+        background-color: rgba(245, 130, 31, 0.1);
+        border-color: rgba(245, 130, 31, 0.22) !important;
+    }
+
+    .projects-summary-list .project-latest-badge {
+        color: #ffb066;
+        background-color: rgba(245, 130, 31, 0.18);
+    }
+
     .projects-summary-list .project-item:hover strong,
     .projects-personal-list a:hover strong {
         color: #ffb066;
@@ -205,6 +215,11 @@ html.dark {
             color: #8a8a8a !important;
             background-color: transparent !important;
             border-top-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .title-latest-badge {
+            color: #ffb066;
+            background-color: rgba(245, 130, 31, 0.18);
         }
 
         .post-content,
