@@ -5,6 +5,7 @@ thumbnail: "/assets/img/picture/profile.jpg"
 title: "문동준 프로필"
 desc: "Unity와 C#을 활용한 게임 클라이언트 개발자. 포트폴리오에서 프로젝트를 확인하세요!"
 open_to_work: true
+google_analytics: "G-6GHV7BHE5J" # GA4 measurement ID
 public: true   # true 로 바꾸면(재빌드 시) 정상 공개 / false 면 전체가 '비공개' 안내로 대체
 
 # author settings
