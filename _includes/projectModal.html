@@ -32,11 +32,22 @@
             window.scrollTo(0, savedScrollY);
         }
 
-        function openModal(url) {
+        function trackModalView(url, title) {
+            if (typeof window.gtag !== "function") return;
+            const pageUrl = new URL(url, window.location.origin);
+            window.gtag("event", "page_view", {
+                page_title: title || "프로젝트 상세",
+                page_location: pageUrl.href,
+                page_path: pageUrl.pathname
+            });
+        }
+
+        function openModal(url, title) {
             const root = document.documentElement;
             const alreadyOpen = root.classList.contains("modal-open");
             body.innerHTML = "";
             loadPost(url, "projectModalBody");
+            trackModalView(url, title);
             modal.classList.add("open");
             modal.scrollTop = 0;
             if (!alreadyOpen) {
@@ -63,7 +74,8 @@
         document.addEventListener("click", (e) => {
             const item = e.target.closest(".project-item");
             if (item && item.dataset.postUrl) {
-                openModal(item.dataset.postUrl);
+                const title = item.querySelector("strong")?.textContent?.trim();
+                openModal(item.dataset.postUrl, title);
             }
         });
 
