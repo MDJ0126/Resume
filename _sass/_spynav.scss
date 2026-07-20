@@ -1,4 +1,4 @@
-// 우측 도트 인디케이터 네비 (호버 시 라벨 표시)
+// 우측 마그네틱 인디케이터 네비 (마우스와 가까운 눈금이 길어짐)
 .spy-nav {
     position: fixed;
     right: 40px;
@@ -23,7 +23,7 @@
         justify-content: flex-end; // 점은 우측 고정, 라벨은 왼쪽으로 펼쳐짐
         gap: 12px;
         // 좌측으로 넓은 호버/클릭 영역 (점만 작게 잡히던 문제 보정)
-        padding: 11px 4px 11px 80px;
+        padding: 6px 4px 6px 80px;
         text-decoration: none;
 
         .nav-text {
@@ -39,11 +39,13 @@
 
         .nav-dot {
             flex: 0 0 auto;
-            width: 9px;
+            width: calc(9px + (var(--nav-pull, 0) * 42px));
             height: 9px;
-            border-radius: 50%;
+            border-radius: 999px;
             background-color: #cfcfcf;
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            transform: translateY(var(--nav-shift-y, 0px));
+            transform-origin: right center;
+            transition: width 0.12s ease-out, transform 0.12s ease-out, background-color 0.2s ease;
         }
 
         &:hover {
@@ -57,7 +59,6 @@
 
             .nav-dot {
                 background-color: #888;
-                transform: scale(1.25);
             }
         }
 
@@ -68,8 +69,13 @@
 
             .nav-dot {
                 background-color: #f5821f;
-                transform: scale(1.4);
             }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .nav-link .nav-dot {
+            transition: background-color 0.2s ease;
         }
     }
 

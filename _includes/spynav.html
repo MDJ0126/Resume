@@ -149,5 +149,46 @@
                 }
             });
         });
+
+        // 마우스와 가까운 눈금이 커서를 향해 당겨지는 마그네틱 효과
+        const spyNav = document.querySelector(".spy-nav");
+        const navDots = spyNav ? spyNav.querySelectorAll(".nav-dot") : [];
+        const canAnimate = window.matchMedia("(pointer: fine)").matches
+            && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let magneticFrame = null;
+        let pointerX = 0;
+        let pointerY = 0;
+
+        const resetMagneticNav = () => {
+            navDots.forEach((dot) => {
+                dot.style.removeProperty("--nav-pull");
+                dot.style.removeProperty("--nav-shift-y");
+            });
+        };
+
+        const updateMagneticNav = () => {
+            magneticFrame = null;
+            navDots.forEach((dot) => {
+                const rect = dot.getBoundingClientRect();
+                const centerX = rect.right;
+                const centerY = rect.top + (rect.height / 2);
+                const dx = pointerX - centerX;
+                const dy = pointerY - centerY;
+                const distance = Math.sqrt((dx * dx) + (dy * dy));
+                const pull = Math.max(0, 1 - (distance / 190));
+
+                dot.style.setProperty("--nav-pull", pull.toFixed(3));
+                dot.style.setProperty("--nav-shift-y", `${(dy * pull * 0.2).toFixed(2)}px`);
+            });
+        };
+
+        if (canAnimate && navDots.length) {
+            document.addEventListener("pointermove", (event) => {
+                pointerX = event.clientX;
+                pointerY = event.clientY;
+                if (!magneticFrame) magneticFrame = requestAnimationFrame(updateMagneticNav);
+            });
+            document.documentElement.addEventListener("mouseleave", resetMagneticNav);
+        }
     });
 </script>
