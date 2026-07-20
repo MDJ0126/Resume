@@ -36,6 +36,7 @@ html.dark {
     }
 
     .section-title,
+    .qa .qa-item h3,
     .about .about-summary,
     .company .title,
     .company .content-container h4,
@@ -44,6 +45,8 @@ html.dark {
     }
 
     .about .about-content,
+    .qa .qa-item p,
+    .coffee-chat-section p,
     .about .about-content p,
     .about .about-highlights li,
     .company .content-container p,
@@ -64,6 +67,8 @@ html.dark {
     }
 
     .company .title-container,
+    .qa .qa-list,
+    .qa .qa-item,
     .companys [id^="companys-post-container-"] + [id^="companys-post-container-"],
     .information .cert-item,
     .projects-summary-list li,

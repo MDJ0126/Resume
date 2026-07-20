@@ -93,6 +93,109 @@
     }
 }
 
+.qa {
+    padding: 24px 30px;
+
+    @media (max-width: $mobile-width) {
+        padding: 16px 18px;
+    }
+
+    .qa-intro {
+        margin: 0 0 14px;
+        color: $default-tint;
+        line-height: 1.6;
+    }
+
+    .qa-list {
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .qa-item {
+        border-bottom: 1px solid #f0f0f0;
+
+        h3 {
+            position: relative;
+            margin: 0;
+            padding: 16px 8px 8px 30px;
+            color: $default-shade;
+            font-size: 1em;
+            font-weight: 700;
+
+            &::before {
+                content: "Q";
+                position: absolute;
+                left: 4px;
+                color: #f5821f;
+                font-weight: 800;
+            }
+
+        }
+
+        p {
+            margin: 0 8px 16px 30px;
+            color: $default-color;
+            line-height: 1.7;
+        }
+    }
+}
+
+.coffee-chat-section {
+    .coffee-chat-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 24px 30px;
+
+        @media (max-width: $mobile-width) {
+            align-items: stretch;
+            flex-direction: column;
+            gap: 16px;
+            padding: 20px 18px;
+        }
+    }
+
+    .section-title {
+        margin-bottom: 6px;
+    }
+
+    p {
+        margin: 0;
+        color: $default-tint;
+        line-height: 1.6;
+    }
+
+    .coffee-chat-link {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 11px 18px;
+        border-radius: 8px;
+        background-color: #fae100;
+        color: #321f1f;
+        font-weight: 700;
+        text-align: center;
+        transition: background-color 0.15s ease, transform 0.15s ease;
+
+        &:hover {
+            background-color: #f3d900;
+            color: #321f1f;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+    }
+
+    .coffee-chat-link-icon {
+        width: 20px;
+        height: 20px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
 .projects-summary {
     padding: 24px 30px;
 
