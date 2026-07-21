@@ -323,7 +323,8 @@
             }
         }
 
-        a {
+        a,
+        .project-item {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -331,6 +332,7 @@
             text-decoration: none;
             color: inherit;
             border-radius: 6px;
+            cursor: pointer;
             transition: background-color 0.15s ease;
 
             &:hover {
@@ -362,6 +364,12 @@
             .github-icon,
             .link-icon {
                 margin: 0;
+            }
+
+            img {
+                width: 18px;
+                height: 18px;
+                object-fit: contain;
             }
         }
 

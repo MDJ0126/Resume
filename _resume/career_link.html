@@ -2,10 +2,11 @@
 <div class="box-container">
     <div class="projects-summary">
         <h2 class="section-title">프로젝트</h2>
-        <p class="projects-summary-desc">참여한 출시작입니다. 항목을 클릭하면 담당 업무와 인사이트를 바로 확인할 수 있습니다.</p>
+        <p class="projects-summary-desc">회사 및 개인 프로젝트입니다. 항목을 클릭하면 담당 업무와 인사이트를 바로 확인할 수 있습니다.</p>
 
+        <h3 class="projects-personal-title">회사 프로젝트</h3>
         <ul class="projects-summary-list">
-            {% assign category = "projects" %}
+            {% assign category = "company-projects" %}
             {% for post in site.categories[category] reversed %}
             <li class="project-item{% if post.latest %} project-item--latest{% endif %}" data-post-url="{{ site.baseurl }}{{ post.url }}">
                 <img class="project-item-icon" src="{{ site.baseurl }}/assets/img/icon/{{ post.icon }}" alt="{{ post.title }}">
@@ -21,22 +22,15 @@
 
         <h3 class="projects-personal-title">개인 프로젝트</h3>
         <ul class="projects-personal-list">
-            <li>
-                <a href="https://github.com/MDJ0126/FPSGame" target="_blank">
-                    <span class="project-link-icon"><span class="github-icon"></span></span>
-                    <strong>FPS 게임</strong>
-                    <span class="project-meta">좀비 슈팅 전투를 구현한 FPS 개인 개발 프로젝트</span>
-                    <em class="project-item-arrow">↗</em>
-                </a>
+            {% assign category = "personal-projects" %}
+            {% for post in site.categories[category] reversed %}
+            <li class="project-item" data-post-url="{{ site.baseurl }}{{ post.url }}">
+                <span class="project-link-icon"><img src="{{ site.baseurl }}/assets/img/icon/{{ post.icon }}" alt=""></span>
+                <strong>{{ post.title }}</strong>
+                <span class="project-meta">{{ post.genre }} · {{ post.release }}</span>
+                <em class="project-item-arrow">›</em>
             </li>
-            <li>
-                <a href="https://easebeyond.com/" target="_blank">
-                    <span class="project-link-icon"><span class="link-icon"></span></span>
-                    <strong>Ease Beyond</strong>
-                    <span class="project-meta">태양계를 자동 주행으로 순회하는 WebGL 우주 크루즈 프로젝트</span>
-                    <em class="project-item-arrow">↗</em>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>

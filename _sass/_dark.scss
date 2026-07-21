@@ -121,7 +121,8 @@ html.dark {
     }
 
     .projects-summary-list .project-item:hover,
-    .projects-personal-list a:hover {
+    .projects-personal-list a:hover,
+    .projects-personal-list .project-item:hover {
         background-color: rgba(245, 130, 31, 0.14);
     }
 
@@ -136,7 +137,8 @@ html.dark {
     }
 
     .projects-summary-list .project-item:hover strong,
-    .projects-personal-list a:hover strong {
+    .projects-personal-list a:hover strong,
+    .projects-personal-list .project-item:hover strong {
         color: #ffb066;
     }
 

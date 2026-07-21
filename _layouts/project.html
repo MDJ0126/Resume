@@ -17,9 +17,12 @@
                         </div>
                     </div>
                     <div class="content">
+                        {% if page.images and page.images.size > 0 %}
                         <div class="print-only-off">
                             <div id="gallery-container-{{ page.galley_index }}" class="gallery-container">
+                                {% if page.images.size > 1 or page.youtubeId or page.video %}
                                 <button class="prev-button" onclick="prevSlide({{ page.galley_index }})"></button>
+                                {% endif %}
                                 <div class="gallerys-frame">
                                     <div class="gallerys">
                                         {% for image in page.images %}
@@ -36,7 +39,7 @@
                                             </div>
                                         </div>
                                         {% endfor %}
-                                        {% if page.youtubeId %}
+                                        {% if page.youtubeId or page.video %}
                                         <div class="gallery-item">
                                             <div class="gallery-item-content">
                                                 <div class="print-only-on">
@@ -50,7 +53,9 @@
                                         {% endif %}
                                     </div>
                                 </div>
+                                {% if page.images.size > 1 or page.youtubeId or page.video %}
                                 <button class="next-button" onclick="nextSlide({{ page.galley_index }})"></button>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="print-only-on">
@@ -66,9 +71,10 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                         <div class="info-container">
                             <div class="info-item-dt">참여기간</div>
-                            <div class="info-item-dt">소속회사</div>
+                            <div class="info-item-dt">{% if page.project_type == "personal" %}개발형태{% else %}소속회사{% endif %}</div>
                             <div class="info-item-dt">장르</div>
                             <div class="info-item-dd">{{ page.period }}</div>
                             {% if page.group_logo %}
@@ -84,21 +90,21 @@
                             <div class="info-item-dd">{{ page.tools }}</div>
                             <div class="info-item-dd">{{ page.project_managed }}</div>
                         </div>
-                        <div class="sub-title">담당업무</div>
+                        <div class="sub-title">{% if page.project_type == "personal" %}주요 구현{% else %}담당업무{% endif %}</div>
                         <ol>
                             {% for item in page.works %}
                             <li>{{ item }}</li>
                             {% endfor %}
                         </ol>
                         {% if page.highlights %}
-                        <div class="sub-title">성과</div>
+                        <div class="sub-title">{% if page.project_type == "personal" %}개발 포인트{% else %}성과{% endif %}</div>
                         <ol>
                             {% for item in page.highlights %}
                             <li>{{ item }}</li>
                             {% endfor %}
                         </ol>
                         {% endif %}
-                        <div class="sub-title">인사이트</div>
+                        <div class="sub-title">{% if page.project_type == "personal" %}회고{% else %}인사이트{% endif %}</div>
                         <div class="post-content">
                             {{ page.content }}
                         </div>
