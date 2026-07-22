@@ -36,6 +36,7 @@ html.dark {
     }
 
     .section-title,
+    .qa-panel .qa-summary strong,
     .qa .qa-item h3,
     .about .about-summary,
     .company .title,
@@ -60,6 +61,7 @@ html.dark {
     }
 
     .projects-summary-list span,
+    .qa-panel .qa-summary small,
     .projects-personal-list .project-meta,
     .information .cert-date,
     .information .cert-meta {
@@ -69,6 +71,7 @@ html.dark {
     .company .title-container,
     .qa .qa-list,
     .qa .qa-item,
+    .coffee-chat-section,
     .companys [id^="companys-post-container-"] + [id^="companys-post-container-"],
     .information .cert-item,
     .projects-summary-list li,
@@ -97,6 +100,18 @@ html.dark {
 
     .company .title-container[role="button"]::after {
         border-color: #aaa;
+    }
+
+    .qa-panel .qa-summary i {
+        border-color: #aaa;
+    }
+
+    .qa-panel .qa-summary {
+        background: linear-gradient(105deg, rgba(245, 130, 31, 0.12) 0%, #1f2125 58%);
+
+        &:hover {
+            background: linear-gradient(105deg, rgba(245, 130, 31, 0.18) 0%, #1f2125 65%);
+        }
     }
 
     .information .cert-summary::after {

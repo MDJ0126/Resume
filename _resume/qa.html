@@ -1,10 +1,17 @@
 <section id="qa"></section>
-<div class="box-container">
-    <div class="qa">
-        <h2 class="section-title">간단한 Q&amp;A</h2>
-        <p class="qa-intro">함께 일하기 전, 궁금해하실 만한 내용을 짧게 정리했습니다.</p>
+<div class="box-container qa-combined">
+    <details class="qa-panel">
+        <summary class="qa-summary">
+            <span class="qa-summary-badge" aria-hidden="true">Q</span>
+            <span class="qa-summary-copy">
+                <strong>저에 대해 더 궁금한 점이 있으신가요?</strong>
+                <small>간단한 Q&amp;A와 커피챗 안내를 확인해 보세요.</small>
+            </span>
+            <i aria-hidden="true"></i>
+        </summary>
 
-        <div class="qa-list">
+        <div class="qa">
+            <div class="qa-list">
             <div class="qa-item">
                 <h3>어떤 개발자이신가요?</h3>
                 <p>Unity와 C#을 중심으로, 소규모 팀에서 아웃게임부터 인게임까지 폭넓게 설계하고 구현해 온 게임 클라이언트 개발자입니다. 현재는 개인 프로젝트를 진행하면서 Unreal Engine도 함께 학습하고 있습니다. 필요한 일을 먼저 찾아 움직이고, 더 나은 방법을 꾸준히 탐구하는 편입니다.</p>
@@ -29,6 +36,81 @@
                 <h3>AI 도구를 어떻게 활용하시나요?</h3>
                 <p>AI 도구는 개발 생산성과 경쟁력을 높이기 위해 반드시 활용해야 하는 필수 도구라고 생각합니다. 업무와 개인 프로젝트에서 설계 검토, 기술 조사, 반복 작업 자동화, 문제 해결에 적극 활용하여 이전보다 체감상 3배 이상의 개발 속도를 내고 있습니다. 결과를 그대로 받아들이기보다 프로젝트의 구조와 요구사항에 맞는지 직접 검토하고 검증하며 활용하고 있습니다.</p>
             </div>
+            </div>
+
+            {% if site.author.coffee_chat_url %}
+            <div class="coffee-chat-section">
+                <div class="coffee-chat-content">
+                    <div>
+                        <h2 class="section-title">더 이야기 나누고 싶으신가요?</h2>
+                        <p>이력서에 담지 못한 경험이나 개발 이야기는 커피챗에서 편하게 나누겠습니다.</p>
+                    </div>
+                    <a class="coffee-chat-link" href="{{ site.author.coffee_chat_url }}" target="_blank" rel="noopener">
+                        <span class="coffee-chat-link-icon" style="background-image: url({{ site.baseurl }}/assets/img/thumbnails/coffeeChat.png);" aria-hidden="true"></span>
+                        <span>카카오톡으로 대화하기</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
         </div>
-    </div>
+    </details>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const panel = document.querySelector(".qa-panel");
+        if (!panel || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const summary = panel.querySelector(".qa-summary");
+        const content = panel.querySelector(".qa");
+        let animation = null;
+        let isClosing = false;
+        let isExpanding = false;
+
+        const finishAnimation = (open) => {
+            panel.open = open;
+            panel.classList.remove("is-closing");
+            animation = null;
+            isClosing = false;
+            isExpanding = false;
+            panel.style.height = "";
+            panel.style.overflow = "";
+        };
+
+        const animatePanel = (open) => {
+            if (animation) animation.cancel();
+            panel.classList.toggle("is-closing", !open);
+
+            const startHeight = `${panel.offsetHeight}px`;
+            if (open) panel.open = true;
+            const endHeight = open
+                ? `${summary.offsetHeight + content.offsetHeight}px`
+                : `${summary.offsetHeight}px`;
+
+            panel.style.overflow = "hidden";
+            animation = panel.animate(
+                { height: [startHeight, endHeight] },
+                { duration: 320, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+            );
+            animation.onfinish = () => finishAnimation(open);
+            animation.oncancel = () => {
+                isClosing = false;
+                isExpanding = false;
+            };
+        };
+
+        summary.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            if (isClosing || !panel.open) {
+                isClosing = false;
+                isExpanding = true;
+                animatePanel(true);
+            } else if (isExpanding || panel.open) {
+                isExpanding = false;
+                isClosing = true;
+                animatePanel(false);
+            }
+        });
+    });
+</script>
