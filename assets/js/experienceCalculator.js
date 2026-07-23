@@ -17,7 +17,7 @@ function parseDateAndDisplayFromString(dateString, targetElement) {
     targetElement.innerHTML = isNaN(dateObject.getTime()) ? null : dateObjectString;
 }
 
-function calculateExperience(startDate, endDate = null) {
+function calculateExperience(startDate, endDate = null, includeStartMonth = false) {
     var startDateObject = parseDateFromString(startDate);
     var endDateObject = endDate ? parseDateFromString(endDate) : new Date();
 
@@ -31,6 +31,14 @@ function calculateExperience(startDate, endDate = null) {
         months += 12;
     }
 
+    if (includeStartMonth) {
+        months += 1;
+        if (months === 12) {
+            years += 1;
+            months = 0;
+        }
+    }
+
     return { years, months };
 }
 
@@ -38,14 +46,14 @@ function calculateExperience(startDate, endDate = null) {
 function calculateAndDisplayExperience(startDate, endDateOrElement, targetElement = null) {
     // 끝 날짜가 주어진 경우 (두 번째 경력의 예시)
     if (endDateOrElement && typeof endDateOrElement === 'string') {
-        var experience = calculateExperience(startDate, endDateOrElement);
+        var experience = calculateExperience(startDate, endDateOrElement, true);
         if (experience !== null && targetElement) {
             targetElement.innerHTML = `${experience.years}년 ${experience.months}개월`;
         }
     }
     // targetElement만 있는 경우 기존 방식
     else if (endDateOrElement && targetElement === null) {
-        var experience = calculateExperience(startDate);
+        var experience = calculateExperience(startDate, null, true);
         if (experience !== null && endDateOrElement) {
             endDateOrElement.innerHTML = `${experience.years}년 ${experience.months}개월`;
         }
