@@ -62,7 +62,8 @@ async function report(request, env, days, requestedDate, requestedStart, request
     ga(env, accessToken, { dateRanges:[{startDate:rangeStart,endDate:rangeEnd}],dimensions:[{name:"dateHour"},{name:"city"},{name:"deviceCategory"}],metrics:[{name:"activeUsers"}],orderBys:[{dimension:{dimensionName:"dateHour"},desc:true}],limit:"8" })
   ]);
   const currentUsers=Number(value(week,0)), previousUsers=Number(value(previous,0));
-  return Response.json({ selectedDate, rangeStart, rangeEnd, today:value(today,0), week:currentUsers, views:value(week,1), change:previousUsers?Math.round((currentUsers-previousUsers)/previousUsers*100):(currentUsers?100:0), sources:rows(sources), cities:rows(cities), daily:rows(daily), pages:rows(pages), devices:rows(devices), hours:rows(hours), landings:rows(landings), recent:rows(recent) });
+  const chartEnd=selectedDate||(hasCustomRange?customEnd:koreaToday()),chartStart=selectedDate||(hasCustomRange?customStart:shiftDate(chartEnd,-(days-1)));
+  return Response.json({ selectedDate, rangeStart, rangeEnd, today:value(today,0), week:currentUsers, views:value(week,1), change:previousUsers?Math.round((currentUsers-previousUsers)/previousUsers*100):(currentUsers?100:0), sources:rows(sources), cities:rows(cities), daily:fillDaily(rows(daily),chartStart,chartEnd), pages:rows(pages), devices:rows(devices), hours:rows(hours), landings:rows(landings), recent:rows(recent) });
   } catch (error) {
     return new Response("GA 조회 오류: " + error.message, { status: 500 });
   }
@@ -70,6 +71,8 @@ async function report(request, env, days, requestedDate, requestedStart, request
 
 function shiftDate(value, offset) { const date = new Date(value + "T00:00:00Z"); date.setUTCDate(date.getUTCDate() + offset); return date.toISOString().slice(0, 10); }
 function daysBetween(start, end) { return Math.round((new Date(end + "T00:00:00Z") - new Date(start + "T00:00:00Z")) / 86400000); }
+function koreaToday() { return new Intl.DateTimeFormat("en-CA", { timeZone:"Asia/Seoul", year:"numeric", month:"2-digit", day:"2-digit" }).format(new Date()); }
+function fillDaily(data, start, end) { const values=new Map(data.map(row=>[row[0],row[1]])),result=[]; for(let date=start;date<=end;date=shiftDate(date,1)){const key=date.replaceAll("-","");result.push([key,values.get(key)||"0"])} return result; }
 
 async function createSession(request, env) {
   const idToken = (request.headers.get("authorization") || "").replace(/^Bearer /, "");
